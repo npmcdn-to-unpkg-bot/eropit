@@ -3,14 +3,35 @@
   <head>
     <title>Eropit</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdn.rawgit.com/thousandjapan/qwerty/master/css/qwerty.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://rawgit.com/thousandjapan/qwerty/master/css/qwerty.css" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="screen" title="no title" charset="utf-8">
   </head>
 
   <body>
     <%= render 'layouts/header' %>
-    <%= yield %>
+    <div class="wrapper">
+      <div class="wrap">
+        <div class="pack">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+        items : 4,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+        
+      });
+    });
+
+    </script>
   </body>
 </html>

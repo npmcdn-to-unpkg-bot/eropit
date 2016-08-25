@@ -6,6 +6,7 @@
 #
 default: &default
   adapter: postgresql
+  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -22,4 +23,8 @@ test:
 
 production:
   <<: *default
-  database: 
+  host: ec2-50-17-255-49.compute-1.amazonaws.com
+  port: 5432
+  username: kkmmmiddinkzbu
+  password: EPFzoA8rabzLCn4NQ8iiOTe3YN
+  database: dd6r905nltbmqd

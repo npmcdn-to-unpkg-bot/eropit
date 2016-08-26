@@ -1,0 +1,13 @@
+<div class="twelve cols">
+  <div class="card">
+    <%= form_for @article do |f| %>
+      <label>Title</label>
+      <%= f.text_field :title, class: "form-control" %>
+      <label>Tags</label>
+      <ul id="article-tags"></ul>
+    <% end %>
+  </div>
+</div>
+
+<style media="screen">
+</style>

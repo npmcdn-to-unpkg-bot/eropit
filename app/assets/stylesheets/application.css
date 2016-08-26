@@ -11,7 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require owl.carousel
  *= require owl.theme
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
+ *= require_self
  */

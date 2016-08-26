@@ -9,6 +9,9 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'owlcarousel-rails'
+gem 'acts-as-taggable-on'
+gem 'jquery-ui-rails'
+gem 'gon'
 
 group :development, :test do
   gem 'sqlite3'

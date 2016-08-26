@@ -1,0 +1,11 @@
+<div class="twelve cols">
+  <% @articles.each_slice(3) do |articles| %>
+    <div class="row">
+      <% articles.each do |article| %>
+        <div class="four cols card">
+          <%= render 'layouts/article_card', article: article %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

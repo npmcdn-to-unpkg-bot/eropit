@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  skip_before_action :basic_auth, only: [:show]
+  skip_before_action :basic_auth, only: [:show, :ranking, :search]
   before_action :set_sidebar_tags, only: [:show, :ranking, :search]
 
   def show
@@ -10,11 +10,11 @@ class ArticlesController < ApplicationController
   end
 
   def ranking
-
+    @articles = Article.in_day.popular(20).published
   end
 
   def search
-    @articles = Article.tagged_with(params[:search])
+    @articles = Article.tagged_with(params[:search]).published
   end
 
   def new

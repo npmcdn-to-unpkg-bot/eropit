@@ -8,11 +8,11 @@ class Article < ApplicationRecord
     .where.not(id: article_id)
     .limit(12)
   }
-  scope :popular, -> {
+  scope :popular, ->(limit) {
     joins(:views)
     .order('count(views.id) desc')
     .group('articles.id')
-    .limit(12)
+    .limit(limit)
   }
   scope :in_day, -> { where('views.created_at BETWEEN ? AND ?', Time.zone.now.beginning_of_day, Time.zone.now.end_of_day) }
   scope :latest, -> { order(created_at: :DESC) }

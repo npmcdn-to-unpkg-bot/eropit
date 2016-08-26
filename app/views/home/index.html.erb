@@ -105,74 +105,27 @@
       <div class="row">
         <h6 class="sub-heading"><i class="icon ion-flash"></i>&nbsp;新着動画</h6>
       </div>
-      <div class="row">
-        <div class="six cols card">
-          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
-          <div class="body summary">
-            <img src="http://placeimg.com/400/200/people" alt="" />
-            <div class="info video-summary">
-              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
-              <div class="host">
-                <i class="icon ion-earth"></i>&nbsp;Pornhub
+      <% @latest_articles.each_slice(2) do |articles| %>
+        <div class="row">
+          <% articles.each do |article| %>
+            <div class="six cols card">
+              <div class="head"><i class="icon ion-ios-film"></i>&nbsp;<%= article.title %></div>
+              <div class="body summary">
+                <img src="<%= article.thumbnail %>" alt="" />
+                <div class="info video-summary">
+                  <p><%= article.description %></p>
+                  <div class="host">
+                    <i class="icon ion-earth"></i>&nbsp;<%= article.host %>
+                  </div>
+                </div>
+                <% article.tag_list do |tag| %>
+                  <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;<%= tag %></span>
+                <% end %>
               </div>
             </div>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
-          </div>
+          <% end %>
         </div>
-        <div class="six cols card">
-          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
-          <div class="body summary">
-            <img src="http://placeimg.com/400/200/people" alt="" />
-            <div class="info video-summary">
-              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
-              <div class="host">
-                <i class="icon ion-earth"></i>&nbsp;Pornhub
-              </div>
-            </div>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="six cols card">
-          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
-          <div class="body summary">
-            <img src="http://placeimg.com/400/200/people" alt="" />
-            <div class="info video-summary">
-              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
-              <div class="host">
-                <i class="icon ion-earth"></i>&nbsp;Pornhub
-              </div>
-            </div>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
-          </div>
-        </div>
-        <div class="six cols card">
-          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
-          <div class="body summary">
-            <img src="http://placeimg.com/400/200/people" alt="" />
-            <div class="info video-summary">
-              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
-              <div class="host">
-                <i class="icon ion-earth"></i>&nbsp;Pornhub
-              </div>
-            </div>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

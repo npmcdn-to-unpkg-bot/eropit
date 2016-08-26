@@ -1,2 +1,54 @@
-<h1>Article#manage</h1>
-<p>Find me in app/views/article/manage.html.erb</p>
+<div class="row">
+  <div class="left three cols">
+    <div class="sidebar twelve cols">
+      <div class="card">
+        <div class="head">
+          <i class="icon ion-android-list"></i>&nbsp;メニュー
+        </div>
+        <div class="body card-menu">
+          <ul>
+            <%= link_to new_article_path do %>
+              <li>記事投稿</li>
+            <% end %>
+            <%= link_to admin_path do %>
+              <li>記事管理</li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="foot">
+          <%= link_to root_path, class: "full-x card-btn" do %>TOPに戻る<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right nine cols">
+    <div class="row">
+      <div class="twelve cols card">
+        <div class="card">
+          <div class="head">検索</div>
+          <div class="body">
+            <%= form_tag '#', method: :get, class: "navbar-form navbar-left search-form" do %>
+              <%= text_field_tag(
+                  :search,
+                  params[:search],
+                  placeholder: "Search",
+                  class: "form-control"
+              ) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% @articles.each_slice(4) do |articles| %>
+      <div class="row">
+        <% articles.each do |article| %>
+          <div class="three cols card">
+            <div class="head">
+              <%= article.title %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

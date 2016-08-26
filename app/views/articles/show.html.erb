@@ -31,11 +31,11 @@
   <div class="twelve cols">
     <% @related_articles.each_slice(3) do |articles| %>
       <div class="row">
-        <div class="four cols card">
-          <% articles.each do |article| %>
+        <% articles.each do |article| %>
+          <div class="four cols card">
             <%= render 'layouts/article_card', article: article %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

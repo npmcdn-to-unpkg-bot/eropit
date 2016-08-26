@@ -1,3 +1,18 @@
+input {
+  padding: 8px;
+  margin-bottom: 8px !important;
+}
+
+textarea {
+  width: 100%;
+  margin-bottom: 8px !important;
+}
+
+select {
+  width: 100%;
+  height: 36px;
+  margin-bottom: 8px !important;
+}
 .logo {
   font-family: 'Press Start 2P', cursive;
   color: #333;
@@ -168,4 +183,8 @@
 }
 .sidebar-search input {
   width: 100%;
+}
+
+.feature-videos .card .head, .popular-videos .card .head, .latest-videos .card .head {
+  height: 48px;
 }

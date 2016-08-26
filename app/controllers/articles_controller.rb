@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
     @article = Article.find_by(id: params[:id])
     @related_articles = Article.related(@article.category_id, @article.id).published
     @sidebar_tags = ActsAsTaggableOn::Tag.most_used(30)
+
+    create_view(@article.id)
   end
 
   def new
@@ -51,5 +53,11 @@ class ArticlesController < ApplicationController
   private
     def article_params
       params.require(:article).permit(:title, :description, :thumbnail, :link, :category_id, :duration, :host, :published, :tag_list)
+    end
+
+    def create_view(article_id)
+      v = View.new
+      v.article_id = article_id
+      v.save!
     end
 end

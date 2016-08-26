@@ -118,7 +118,7 @@
                     <i class="icon ion-earth"></i>&nbsp;<%= article.host %>
                   </div>
                 </div>
-                <% article.tag_list do |tag| %>
+                <% article.tag_list.each do |tag| %>
                   <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;<%= tag %></span>
                 <% end %>
               </div>

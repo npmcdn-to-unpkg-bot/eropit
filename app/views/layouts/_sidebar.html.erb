@@ -5,12 +5,18 @@
     </div>
     <div class="body card-menu">
       <ul>
-        <li><i class="icon ion-home"></i><%= link_to 'トップ', root_path %></li>
-        <li><i class="icon ion-home"></i><%= link_to '人気動画', ranking_articles_path %></li>
+        <%= link_to root_path do %>
+          <li><i class="icon ion-home"></i>トップ</li>
+        <% end %>
+        <%= link_to ranking_articles_path do %>
+          <li><i class="icon ion-home"></i>人気動画</li>
+        <% end %>
       </ul>
       <div class="sidebar-search">
-        <span><i class="icon ion-search"></i>&nbsp;クイックサーチ</span>
-        <input type="text" name="name" value="" placeholder="動画を検索">
+        <%= form_tag search_articles_path, method: :get do %>
+          <span><i class="icon ion-search"></i>&nbsp;クイックサーチ</span>
+          <%= text_field_tag :search, params[:search], placeholder: '動画を検索' %>
+        <% end %>
       </div>
     </div>
   </div>

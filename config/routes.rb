@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   resources :articles, except: [:index] do
     collection do
       get 'ranking'
+      get 'search'
     end
   end
-  resources :categories
-
   get 'admin', to: 'articles#manage'
 end

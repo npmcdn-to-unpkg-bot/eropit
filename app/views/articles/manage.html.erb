@@ -1,52 +1,18 @@
 <div class="row">
   <div class="left three cols">
-    <div class="sidebar twelve cols">
-      <div class="card">
-        <div class="head">
-          <i class="icon ion-android-list"></i>&nbsp;メニュー
-        </div>
-        <div class="body card-menu">
-          <ul>
-            <%= link_to new_article_path do %>
-              <li>記事投稿</li>
-            <% end %>
-            <%= link_to admin_path do %>
-              <li>記事管理</li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="foot">
-          <%= link_to root_path, class: "full-x card-btn" do %>TOPに戻る<% end %>
-        </div>
-      </div>
-    </div>
+    <%= render 'layouts/manage_side_bar' %>
   </div>
   <div class="right nine cols">
-    <div class="row">
-      <div class="twelve cols card">
-        <div class="card">
-          <div class="head">検索</div>
-          <div class="body">
-            <%= form_tag '#', method: :get, class: "navbar-form navbar-left search-form" do %>
-              <%= text_field_tag(
-                  :search,
-                  params[:search],
-                  placeholder: "Search",
-                  class: "form-control"
-              ) %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% @articles.each_slice(4) do |articles| %>
+    <% @articles.each_slice(3) do |articles| %>
       <div class="row">
         <% articles.each do |article| %>
-          <div class="three cols card">
-            <div class="head">
-              <%= article.title %>
+          <%= link_to edit_article_path(id: article.id) do %>
+            <div class="three cols card">
+              <div class="image-head" style="background-image: url(<%= article.thumbnail %>);">
+                <h5 class="title"><%= article.title %></h5>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     <% end %>

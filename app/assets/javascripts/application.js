@@ -15,3 +15,25 @@
 //= require turbolinks
 //= require_tree .
 //= require owl.carousel
+//= require jquery-ui
+//= require tag-it
+
+
+$( document ).ready(function(){
+  var i, len, ref, results, tag;
+  $('#article-tags').tagit({
+    fieldName: 'article[tag_list]',
+    singleField: true,
+    availableTags: gon.available_tags
+  });
+
+  if (gon.article_tags != null) {
+    ref = gon.article_tags;
+    results = [];
+    for (i = 0, len = ref.length; i < len; i++) {
+      tag = ref[i];
+      results.push($('#article-tags').tagit('createTag', tag));
+    }
+    return results;
+  }
+})

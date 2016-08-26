@@ -1,0 +1,26 @@
+<div class="sidebar twelve cols">
+  <div class="card">
+    <div class="head">
+      <i class="icon ion-android-list"></i>&nbsp;メニュー
+    </div>
+    <div class="body card-menu">
+      <ul>
+        <%= link_to new_article_path do %>
+          <li>記事投稿</li>
+        <% end %>
+        <%= link_to admin_path do %>
+          <li>記事管理</li>
+        <% end %>
+        <div>
+          <%= form_for @category do |f| %>
+            <%= f.text_field :title, placeholder: 'Add new category' %>
+            <%= f.submit 'Save', class: 'btn' %>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+    <div class="foot">
+      <%= link_to root_path, class: "full-x card-btn" do %>TOPに戻る<% end %>
+    </div>
+  </div>
+</div>

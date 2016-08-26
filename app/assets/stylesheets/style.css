@@ -40,3 +40,51 @@
   width: 100%;
   height: auto;
 }
+
+.video-info {
+  padding: 8px;
+}
+.video-info .video-title {
+  font-size: 20px;
+  line-height: 1.4;
+}
+.tag {
+  background-color: #ffaa00;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 11px;
+  height: 18px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  display: inline-block;
+  cursor: pointer;
+}
+.tag:hover {
+  opacity: 0.8;
+}
+.video-meta {
+  position: relative;
+  font-size: 13px;
+  color: #aaa;
+  height: 4px;
+}
+.video-meta .left {
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+.video-meta .right {
+  position: absolute;
+  top: 4px;
+  right: 0;
+}
+.feature-videos .card {
+  height: auto;
+  border-radius: 0;
+}
+
+@media (max-width:800px) {
+  .feature-videos .card {
+    height: auto;
+  }
+}

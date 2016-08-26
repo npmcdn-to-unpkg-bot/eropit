@@ -2,6 +2,9 @@ class ArticlesController < ApplicationController
   skip_before_action :basic_auth, only: [:show]
 
   def show
+    @article = Article.find_by(id: params[:id])
+    @related_articles = Article.related(@article.category_id, @article.id).published
+    @sidebar_tags = ActsAsTaggableOn::Tag.most_used(30)
   end
 
   def new

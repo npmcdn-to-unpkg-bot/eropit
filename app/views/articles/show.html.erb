@@ -6,12 +6,18 @@
     <div class="row">
       <div class="twele cols card">
         <div class="head">
-          <%= @article.title %>
+          <%= link_to @article.link, target: "_blank" do %>
+            <%= @article.title %>
+          <% end %>
         </div>
         <div class="body">
-          <img src="<%= @article.thumbnail %>" width="100%" alt="" />
+          <%= link_to @article.link, target: "_blank" do %>
+            <img src="<%= @article.thumbnail %>" width="100%" alt="<%= @article.title %>" />
+          <% end %>
           <div class="video-info">
-            <h1 class="video-title"><%= @article.title %></h1>
+            <%= link_to @article.link, target: "_blank" do %>
+              <h1 class="video-title"><%= @article.title %></h1>
+            <% end %>
             <div class="video-meta">
               <span class="left video-duration"><i class="icon ion-clock"></i>&nbsp;再生時間：<%= @article.duration %></span>
               <span class="right video-host"><i class="icon ion-earth"></i>&nbsp;<%= @article.host %></span>

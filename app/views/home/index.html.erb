@@ -1,74 +1,11 @@
 <div class="row">
-  <div class="owl-carousel">
-    <div class="item"><img src="http://placeimg.com/300/200/people" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/arch" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/nature" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/tech" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/sepia" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/nature" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/tech" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/sepia" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/tech" alt="Owl Image"></div>
-    <div class="item"><img src="http://placeimg.com/300/200/sepia" alt="Owl Image"></div>
-  </div>
-</div>
-<div class="row">
   <div class="left three cols">
-    <div class="sidebar twelve cols">
-      <div class="card">
-        <div class="head">
-          <i class="icon ion-android-list"></i>&nbsp;サイトメニュー
-        </div>
-        <div class="body card-menu">
-          <ul>
-            <li><i class="icon ion-home"></i>トップ</li>
-            <li>今日のランキング</li>
-            <li>週間ランキング</li>
-            <li>月間ランキング</li>
-            <li>ランキング（全期間）</li>
-          </ul>
-        </div>
-        <div class="foot">
-          <a href="#" class="full-x card-btn">
-            <i class="icon ion-connection-bars"></i>&nbsp;ランキングをもっと見る
-          </a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="head">
-          <i class="icon ion-pricetags"></i>&nbsp;人気のタグ
-        </div>
-        <div class="body">
-          <ul>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいうえお</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;なにぬ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;はひふへ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;まみむめも</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;やゆ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;らりるれ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;わ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;アイウエオ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;カキク</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;サシスセ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;タチツテト</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ナニヌ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ハヒフ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;マミムメモ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ヤユ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ラリルレ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ワヲ</span>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <%= render 'layouts/sidebar' %>
   </div>
   <div class="right nine cols">
-    <div class="feature-videos">
+    <div class="latest-videos">
       <div class="row">
-        <h6 class="tx-center" style="font-size: 18px;"><i class="icon ion-speakerphone"></i>&nbsp;当サイトおすすめ動画</h6>
+        <h6 class="sub-heading"><i class="icon ion-speakerphone"></i>&nbsp;当サイトおすすめ動画</h6>
       </div>
       <div class="row">
         <div class="four cols card">
@@ -87,24 +24,155 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" width="100%;" alt="" />
+
+    <div class="popular-videos">
       <div class="row">
-        <div class="four cols card">
-          <div class="image-head" style="background-image: url(http://placeimg.com/400/200/tech);">
-            <h5 class="title">This is image header.</h5>
+        <h6 class="sub-heading"><i class="icon ion-ribbon-b"></i>&nbsp;人気動画</h6>
+      </div>
+      <div class="row">
+        <div class="six cols card">
+          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
+          <div class="body summary">
+            <img src="http://placeimg.com/400/200/people" alt="" />
+            <div class="info video-summary">
+              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
+              <div class="host">
+                <i class="icon ion-earth"></i>&nbsp;Pornhub
+              </div>
+            </div>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
           </div>
         </div>
-        <div class="four cols card">
-          <div class="image-head" style="background-image: url(http://placeimg.com/400/200/grayscale);">
-            <h5 class="title">This is image header.</h5>
+        <div class="six cols card">
+          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
+          <div class="body summary">
+            <img src="http://placeimg.com/400/200/people" alt="" />
+            <div class="info video-summary">
+              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
+              <div class="host">
+                <i class="icon ion-earth"></i>&nbsp;Pornhub
+              </div>
+            </div>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
           </div>
         </div>
-        <div class="four cols card">
-          <div class="image-head" style="background-image: url(http://placeimg.com/400/200/sepia);">
-            <h5 class="title">This is image header.</h5>
+      </div>
+      <div class="row">
+        <div class="six cols card">
+          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
+          <div class="body summary">
+            <img src="http://placeimg.com/400/200/people" alt="" />
+            <div class="info video-summary">
+              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
+              <div class="host">
+                <i class="icon ion-earth"></i>&nbsp;Pornhub
+              </div>
+            </div>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
+          </div>
+        </div>
+        <div class="six cols card">
+          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
+          <div class="body summary">
+            <img src="http://placeimg.com/400/200/people" alt="" />
+            <div class="info video-summary">
+              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
+              <div class="host">
+                <i class="icon ion-earth"></i>&nbsp;Pornhub
+              </div>
+            </div>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
           </div>
         </div>
       </div>
     </div>
-    <img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" width="100%;" alt="" />
+    <div class="feature-videos">
+      <div class="row">
+        <h6 class="sub-heading"><i class="icon ion-flash"></i>&nbsp;新着動画</h6>
+      </div>
+      <div class="row">
+        <div class="six cols card">
+          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
+          <div class="body summary">
+            <img src="http://placeimg.com/400/200/people" alt="" />
+            <div class="info video-summary">
+              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
+              <div class="host">
+                <i class="icon ion-earth"></i>&nbsp;Pornhub
+              </div>
+            </div>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
+          </div>
+        </div>
+        <div class="six cols card">
+          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
+          <div class="body summary">
+            <img src="http://placeimg.com/400/200/people" alt="" />
+            <div class="info video-summary">
+              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
+              <div class="host">
+                <i class="icon ion-earth"></i>&nbsp;Pornhub
+              </div>
+            </div>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="six cols card">
+          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
+          <div class="body summary">
+            <img src="http://placeimg.com/400/200/people" alt="" />
+            <div class="info video-summary">
+              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
+              <div class="host">
+                <i class="icon ion-earth"></i>&nbsp;Pornhub
+              </div>
+            </div>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
+          </div>
+        </div>
+        <div class="six cols card">
+          <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
+          <div class="body summary">
+            <img src="http://placeimg.com/400/200/people" alt="" />
+            <div class="info video-summary">
+              <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
+              <div class="host">
+                <i class="icon ion-earth"></i>&nbsp;Pornhub
+              </div>
+            </div>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
+              <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

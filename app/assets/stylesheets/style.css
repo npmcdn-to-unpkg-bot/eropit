@@ -49,7 +49,7 @@
   line-height: 1.4;
 }
 .tag {
-  background-color: #ffaa00;
+  background-color: #fdb0bd;
   color: #fff;
   padding: 4px 12px;
   font-size: 11px;
@@ -87,4 +87,85 @@
   .feature-videos .card {
     height: auto;
   }
+}
+.card .summary {
+  position: relative;
+}
+.card .summary img {
+  height: 120px;
+  width: 55%;
+}
+.card .summary .info {
+  height: 120px;
+  position: relative;
+  width: 42.5%;
+  font-size: 14px;
+  line-height: 1.25;
+  float: right;
+  overflow: hidden;
+}
+
+.card .summary .video-summary .host {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #999;
+  font-size: 12px;
+}
+
+.card .summary .video-summary p {
+  height: 100px;
+  overflow: hidden;
+}
+
+.sub-heading {
+  font-size: 20px;
+  margin: 4px 0 12px 0;
+  text-align: center;
+  background-color: rgba(255,140,160,1);
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+  border-radius: 24px;
+  padding: 4px 0;
+  color: #fff;
+  text-shadow: 0px 0px 4px rgba(255,255,255,.4);
+  letter-spacing: 2px;
+  text-shadow: #E37D8F 1px 1px,
+               #E37D8F 2px 2px,
+               #E37D8F 3px 3px,
+               #E37D8F 4px 4px,
+               #E37D8F 5px 5px,
+               #E37D8F 6px 6px,
+               #E37D8F 7px 7px,
+               #E37D8F 8px 8px,
+               #E37D8F 9px 9px,
+               #E37D8F 10px 10px,
+               #E37D8F 11px 11px,
+               #E37D8F 12px 12px,
+               #E37D8F 13px 13px,
+               #E37D8F 14px 14px,
+               #E37D8F 15px 15px,
+               #E37D8F 16px 16px,
+               #E37D8F 17px 17px,
+               #E37D8F 18px 18px,
+               #E37D8F 19px 19px,
+               #E37D8F 20px 20px,
+               #E37D8F 21px 21px,
+               #E37D8F 22px 22px,
+               #E37D8F 23px 23px,
+               #E37D8F 24px 24px,
+               #E37D8F 25px 25px,
+               #E37D8F 26px 26px,
+               #E37D8F 27px 27px,
+               #E37D8F 28px 28px,
+               #E37D8F 29px 29px,
+               #E37D8F 30px 30px;
+
+  overflow: hidden;
+}
+.sidebar-search  {
+  border-top: #eee solid 1px;
+  padding: 8px 16px 12px 16px !important;
+}
+.sidebar-search input {
+  width: 100%;
 }

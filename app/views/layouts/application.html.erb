@@ -17,12 +17,12 @@
     </script>
     <style media="screen">
       .loading-overlay {
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(255, 255, 255, .8);
+        background-color: rgba(255, 255, 255, 1);
         z-index: 200;
       }
       .loading-message {
@@ -32,6 +32,9 @@
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
       }
+      .loading-message p {
+        margin-left: -10px;
+      }
       .loading-message img {
         width: 48px;
       }
@@ -40,14 +43,14 @@
   </head>
 
   <body style="background-image: url('http://pic.prepics-cdn.com/asdasddsa/61279508.png');">
+    <div class="loading-overlay">
+      <div class="loading-message">
+        <p>Loading...</p>
+        <img src="http://pic.prepics-cdn.com/asdasddsa/61306143.gif" alt="" />
+      </div>
+    </div>
     <%= render 'layouts/header' %>
     <div class="wrapper">
-      <div class="loading-overlay">
-        <div class="loading-message">
-          <p>Loading...</p>
-          <img src="http://pic.prepics-cdn.com/asdasddsa/61306143.gif" alt="" />
-        </div>
-      </div>
       <div class="wrap">
         <div class="pack">
           <%= yield %>
@@ -56,14 +59,14 @@
     </div>
     <script src="https://npmcdn.com/headroom.js@0.9.3" charset="utf-8"></script>
     <link rel="stylesheet" href="https://rawgit.com/thousandjapan/qwerty/master/css/qwerty.css" media="screen" title="no title" charset="utf-8">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
     <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="screen" title="no title" charset="utf-8">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script>
-    $(window).load(function() {
-      $('.loading-overlay').fadeOut();
-    });
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript">
+    window.onload = function(){
+      $('.loading-overlay').hide();
+    };
     </script>
   </body>
 </html>

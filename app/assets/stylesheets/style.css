@@ -409,3 +409,19 @@ select {
     display: table-cell;
   }
 }
+
+footer h5 {
+  font-size: 15px;
+  margin: 12px 0;
+}
+
+footer li {
+  list-style: none;
+  font-size: 13px;
+  color: #ccc;
+}
+
+footer .copyright {
+  font-size: 10px;
+  margin: 16px 0;
+}

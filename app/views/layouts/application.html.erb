@@ -31,9 +31,15 @@
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+        text-align: center;
       }
       .loading-message p {
-        margin-left: -10px;
+        color: #999;
+        font-size: 13px;
+      }
+      .loading-message a {
+        color: #333;
+        border-bottom: dashed 1px #aaa;
       }
       .loading-message img {
         width: 48px;
@@ -47,15 +53,17 @@
       <div class="loading-message">
         <p>Loading...</p>
         <img src="http://pic.prepics-cdn.com/asdasddsa/61306143.gif" alt="" />
+        <p>読み込みが遅い場合は<a onclick="location.reload();">リロード</a>してください。</p>
       </div>
     </div>
     <%= render 'layouts/header' %>
     <div class="wrapper">
       <div class="wrap">
-        <div class="pack">
+        <div class="pack" style="min-height: 100vh;">
           <%= yield %>
         </div>
       </div>
+      <%= render 'layouts/footer' %>
     </div>
     <script src="https://npmcdn.com/headroom.js@0.9.3" charset="utf-8"></script>
     <link rel="stylesheet" href="https://rawgit.com/thousandjapan/qwerty/master/css/qwerty.css" media="screen" title="no title" charset="utf-8">

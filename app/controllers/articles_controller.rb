@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
   end
 
   def nukistream
-    url = 'http://www.nukistream.com/'
+    url = 'http://www.nukistream.com'
 
     charset = nil
     html = open(url) do |f|

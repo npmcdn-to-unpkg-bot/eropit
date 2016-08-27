@@ -11,6 +11,7 @@ gem 'owlcarousel-rails'
 gem 'acts-as-taggable-on'
 gem 'jquery-ui-rails'
 gem 'gon'
+gem 'kaminari'
 
 group :development, :test do
   gem 'sqlite3'

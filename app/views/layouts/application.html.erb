@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,target-densitydpi=medium-dpi,initial-scale=1,minimum-scale=1,shrink-to-fit=no">
     <meta name="google-site-verification" content="xp41dzhu_1MWhm_uzuc193aOOBRCcqfmQ53TwqCgyus" />
     <%= csrf_meta_tags %>
+    <script src="https://npmcdn.com/headroom.js@0.9.3" charset="utf-8"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= include_gon %>
@@ -22,19 +23,5 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-    $(document).ready(function(){
-      $(".owl-carousel").owlCarousel({
-
-        autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-        items : 4,
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3]
-
-      });
-    });
-
-    </script>
   </body>
 </html>

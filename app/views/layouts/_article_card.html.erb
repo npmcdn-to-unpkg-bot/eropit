@@ -1,0 +1,19 @@
+<%= link_to article_path(id: article.id) do %>
+  <div class="head">
+    <i class="icon ion-ios-film"></i>&nbsp;<%= article.title %>
+  </div>
+<% end %>
+<div class="body summary">
+  <%= link_to article_path(id: article.id) do %>
+    <img src="<%= article.thumbnail %>" alt="<%= article.title %>" />
+  <% end %>
+  <div class="info video-summary">
+    <p><%= article.description %></p>
+    <div class="host">
+      <i class="icon ion-earth"></i>&nbsp;<%= article.host %>
+    </div>
+  </div>
+  <% article.tag_list.each do |tag| %>
+    <%= render 'layouts/tag', tag: tag %>
+  <% end %>
+</div>

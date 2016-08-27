@@ -6,11 +6,14 @@
     <div class="body card-menu">
       <ul>
         <%= link_to new_article_path do %>
-          <li>記事投稿</li>
+          <li><i class="icon ion-plus"></i>&nbsp;記事投稿</li>
         <% end %>
         <%= link_to admin_path do %>
-          <li>記事管理</li>
+          <li><i class="icon ion-ios-speedometer"></i>&nbsp;記事管理</li>
         <% end %>
+        <a href="#" target="_blank"><li><i class="icon ion-ios-analytics"></i>&nbsp;Analytics</li></a>
+        <a href="https://github.com/boobee/eropit#boards" target="_blank"><li><i class="icon ion-social-github"></i>&nbsp;Github Board</li></a>
+        <a href="https://www.google.com/webmasters/tools/dashboard?hl=ja&authuser=1&siteUrl=http://nampa-picks.net/" target="_blank"><li class="last"><i class="icon ion-ios-cog-outline"></i>&nbsp;Search console</li></a>
       </ul>
     </div>
     <div class="foot">

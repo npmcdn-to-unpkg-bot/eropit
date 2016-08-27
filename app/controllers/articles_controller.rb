@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
     @related_articles = Article.related(@article.category_id, @article.id).published.limit(6)
     @title = @article.title
     create_view(@article.id)
+    @recommendations = Article.tagged_with(ActsAsTaggableOn::Tag.most_used, :any => true).take(4)
   end
 
   def ranking

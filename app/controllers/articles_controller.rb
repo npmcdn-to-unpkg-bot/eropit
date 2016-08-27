@@ -68,11 +68,8 @@ class ArticlesController < ApplicationController
       v.article_id = article_id
       v.save!
     end
-<<<<<<< HEAD
-=======
 
     def set_sidebar_tags
       @sidebar_tags = ActsAsTaggableOn::Tag.most_used(30)
     end
->>>>>>> d34c5e48b30af1597dd0e77a191ca22c0ed18a73
 end

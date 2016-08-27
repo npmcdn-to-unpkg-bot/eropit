@@ -1,5 +1,8 @@
 <%= link_to article_path(id: article.id) do %>
   <div class="image-head" style="background-image: url(<%= article.thumbnail %>);">
+    <div class="corner-ribbon top-left sticky red shadow">人気</div>
+    <div class="card-overlay"></div>
     <h5 class="title"><%= article.title %></h5>
+    <span class="image-duration"><i class="icon ion-clock"></i>&nbsp;<%= article.duration %></span>
   </div>
 <% end %>

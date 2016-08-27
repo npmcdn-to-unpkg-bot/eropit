@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 
   def ranking
     @articles = Article.in_day.popular(20).published
-    @title = @article.title
+    @title = '人気動画'
   end
 
   def search

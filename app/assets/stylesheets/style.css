@@ -426,6 +426,10 @@ footer .copyright {
   margin: 16px 0;
 }
 
+footer .footer-content {
+  width: 80%;
+}
+
 @media (min-width:800px) {
   footer .footer-content {
     width: 65%;

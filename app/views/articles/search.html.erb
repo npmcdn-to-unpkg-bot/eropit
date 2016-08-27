@@ -1,3 +1,6 @@
+<div class="row">
+  <h6 class="sub-heading">『<%= params[:search] %>』の動画</h6>
+</div>
 <div class="twelve cols">
   <% @articles.each_slice(3) do |articles| %>
     <div class="row">
@@ -8,4 +11,12 @@
       <% end %>
     </div>
   <% end %>
+  <div class="row">
+    <h6 class="sub-heading">おすすめのタグ</h6>
+  </div>
+  <div class="twelve cols">
+    <% @sidebar_tags.each do |tag| %>
+      <%= render 'layouts/tag', tag: tag %>
+    <% end %>
+  </div>
 </div>

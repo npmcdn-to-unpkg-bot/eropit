@@ -1,12 +1,20 @@
 class ArticlesController < ApplicationController
-  skip_before_action :basic_auth, only: [:show]
+  skip_before_action :basic_auth, only: [:show, :ranking, :search]
+  before_action :set_sidebar_tags, only: [:show, :ranking, :search]
 
   def show
     @article = Article.find_by(id: params[:id])
     @related_articles = Article.related(@article.category_id, @article.id).published
-    @sidebar_tags = ActsAsTaggableOn::Tag.most_used(30)
 
     create_view(@article.id)
+  end
+
+  def ranking
+    @articles = Article.in_day.popular(20).published
+  end
+
+  def search
+    @articles = Article.tagged_with(params[:search]).published
   end
 
   def new
@@ -60,4 +68,11 @@ class ArticlesController < ApplicationController
       v.article_id = article_id
       v.save!
     end
+<<<<<<< HEAD
+=======
+
+    def set_sidebar_tags
+      @sidebar_tags = ActsAsTaggableOn::Tag.most_used(30)
+    end
+>>>>>>> d34c5e48b30af1597dd0e77a191ca22c0ed18a73
 end

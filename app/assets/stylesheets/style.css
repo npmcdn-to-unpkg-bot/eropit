@@ -83,7 +83,7 @@ select {
   margin-bottom: 4px;
   display: inline-block;
   cursor: pointer;
-  font-weight: 100;
+  font-weight: 400;
 }
 .tag:hover {
   opacity: 0.8;

@@ -5,16 +5,18 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find_by(id: params[:id])
     @related_articles = Article.related(@article.category_id, @article.id).published
-
+    @title = @article.title
     create_view(@article.id)
   end
 
   def ranking
     @articles = Article.in_day.popular(20).published
+    @title = @article.title
   end
 
   def search
     @articles = Article.tagged_with(params[:search]).published
+    @title = "『#{ params[:search] }』の動画"
   end
 
   def new

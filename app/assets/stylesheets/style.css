@@ -14,7 +14,7 @@ select {
   margin-bottom: 8px !important;
 }
 .logo {
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Rammetto One', cursive;
   color: #333;
 }
 
@@ -178,10 +178,10 @@ select {
   overflow: hidden;
 }
 .sidebar-search  {
-  border-top: #eee solid 1px;
   padding: 8px 16px 12px 16px !important;
 }
 .sidebar-search input {
+  margin-top: 8px;
   width: 100%;
 }
 

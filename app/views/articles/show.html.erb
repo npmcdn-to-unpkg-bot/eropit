@@ -1,89 +1,48 @@
 <div class="row">
-  <div class="right nine cols">
-    <img src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w728" width="100%;" alt="" />
-    <div class="row">
-      <div class="twele cols card">
-        <div class="head">
-          動画タイトル
-        </div>
-        <div class="body">
-          <img src="http://placeimg.com/300/200/sepia" width="100%" alt="" />
-          <div class="video-info">
-            <h1 class="video-title">［AIKA］彼女の事は大事だけどこんなお姉さんに誘惑されたら我慢できない！④</h1>
-            <div class="video-meta">
-              <span class="left video-duration"><i class="icon ion-clock"></i>&nbsp;再生時間：16:01</span>
-              <span class="right video-host"><i class="icon ion-earth"></i>&nbsp;Pornhub</span>
-            </div>
-            <hr>
-            <p>
-              彼女のお家に遊びに行くと、大人しめな彼女とは真逆の派手で巨乳なギャルお姉さんが僕を誘惑！彼女の事は大事だけどこんなお姉さんに誘惑されたら我慢できない！しかもゴムSEXしかやらせてくれない彼女と違ってお姉さんは生ハメOK！しかも中出しもOK！すぐそばに彼女がいるのに生の感覚が気持ち良すぎてピストンが...
-            </p>
-            <div class="tags">
-              <span class="tag"><i class="icon ion-flag"></i>&nbsp;AV女優</span>
-              <span class="tag"><i class="icon ion-flag"></i>&nbsp;ギャル</span>
-              <span class="tag"><i class="icon ion-flag"></i>&nbsp;AIKA</span>
-              <span class="tag"><i class="icon ion-flag"></i>&nbsp;お姉さん</span>
-              <span class="tag"><i class="icon ion-flag"></i>&nbsp;誘惑</span>
-              <span class="tag"><i class="icon ion-flag"></i>&nbsp;生ハメOK</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="left three cols">
     <%= render 'layouts/sidebar' %>
   </div>
-  <div class="twelve cols">
+  <div class="right nine cols">
     <div class="row">
-      <div class="four cols card">
-        <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
-        <div class="body summary">
-          <img src="http://placeimg.com/400/200/people" alt="">
-          <div class="info video-summary">
-            <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
-            <div class="host">
-              <i class="icon ion-earth"></i>&nbsp;Pornhub
-            </div>
-          </div>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
+      <div class="twele cols card">
+        <div class="head">
+          <%= link_to @article.link, target: "_blank" do %>
+            <%= @article.title %>
+          <% end %>
         </div>
-      </div>
-      <div class="four cols card">
-        <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
-        <div class="body summary">
-          <img src="http://placeimg.com/400/200/people" alt="">
-          <div class="info video-summary">
-            <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
-            <div class="host">
-              <i class="icon ion-earth"></i>&nbsp;Pornhub
+        <div class="body">
+          <%= link_to @article.link, target: "_blank" do %>
+            <img src="<%= @article.thumbnail %>" width="100%" alt="<%= @article.title %>" />
+          <% end %>
+          <div class="video-info">
+            <%= link_to @article.link, target: "_blank" do %>
+              <h1 class="video-title"><%= @article.title %></h1>
+            <% end %>
+            <div class="video-meta">
+              <span class="left video-duration"><i class="icon ion-clock"></i>&nbsp;再生時間：<%= @article.duration %></span>
+              <span class="right video-host"><i class="icon ion-earth"></i>&nbsp;<%= @article.host %></span>
+            </div>
+            <hr>
+            <p><%= @article.description %></p>
+            <div class="tags">
+              <% @article.tag_list.each do |tag| %>
+                <%= render 'layouts/tag', tag: tag %>
+              <% end %>
             </div>
           </div>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
-        </div>
-      </div>
-      <div class="four cols card">
-        <div class="head"><i class="icon ion-ios-film"></i>&nbsp;ここにタイトルが入ります。文字数は32文字以内がSEOに最適です。</div>
-        <div class="body summary">
-          <img src="http://placeimg.com/400/200/people" alt="">
-          <div class="info video-summary">
-            <p>これは説明文です。説明文は50文字から100文字が適当で、スニペットに表示されるのは100文字までです。高さを超える分は表示されません。ああああああああああああ</p>
-            <div class="host">
-              <i class="icon ion-earth"></i>&nbsp;Pornhub
-            </div>
-          </div>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいう</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-            <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつてと</span>
         </div>
       </div>
     </div>
+  </div>
+  <div class="twelve cols">
+    <% @related_articles.each_slice(3) do |articles| %>
+      <div class="row">
+        <% articles.each do |article| %>
+          <div class="four cols card">
+            <%= render 'layouts/article_card', article: article %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -5,9 +5,8 @@
     </div>
     <div class="body card-menu">
       <ul>
-        <a href="/"><li><i class="icon ion-home"></i>トップ</li></a>
-        <li><i class="icon ion-home"></i>トップ</li>
-        <li class="last"><i class="icon ion-home"></i>トップ</li>
+        <li><i class="icon ion-home"></i><%= link_to 'トップ', root_path %></li>
+        <li><i class="icon ion-home"></i><%= link_to '人気動画', ranking_articles_path %></li>
       </ul>
       <div class="sidebar-search">
         <span><i class="icon ion-search"></i>&nbsp;クイックサーチ</span>
@@ -21,26 +20,9 @@
     </div>
     <div class="body">
       <ul style="margin: 0">
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;あいうえお</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;かきく</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;さしすせ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;たちつ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;なにぬ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;はひふへ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;まみむめも</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;やゆ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;らりるれ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;わ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;アイウエオ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;カキク</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;サシスセ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;タチツテト</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ナニヌ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ハヒフ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;マミムメモ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ヤユ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ラリルレ</span>
-        <span class="tag"><i class="icon ion-pricetag"></i>&nbsp;ワヲ</span>
+        <% @sidebar_tags.each do |tag| %>
+          <%= render 'layouts/tag', tag: tag %>
+        <% end %>
       </ul>
     </div>
   </div>

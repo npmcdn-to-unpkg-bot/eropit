@@ -3,15 +3,10 @@
     <%= render 'layouts/manage_side_bar' %>
   </div>
   <div class="right nine cols">
-
-  </div>
-</div>
-<div class="row">
-  <div class="twelve cols">
-    <% @articles.each_slice(2) do |articles| %>
+    <% @articles.each_slice(3) do |articles| %>
       <div class="row">
         <% articles.each do |article| %>
-          <div class="six cols card">
+          <div class="four cols card">
             <%= link_to edit_article_path(id: article.id) do %>
               <div class="head">
                 <i class="icon ion-ios-film"></i>&nbsp;<%= article.title %>

@@ -139,6 +139,13 @@ select {
   color: #999;
   font-size: 13px;
 }
+.card .image-duration {
+  position: absolute;
+  color: #eee;
+  right: 12px;
+  top: 8px;
+  font-weight: 400;
+}
 
 .card .summary .video-summary .host {
   position: absolute;
@@ -151,6 +158,19 @@ select {
 .card .summary .video-summary p {
   height: 100px;
   overflow: hidden;
+}
+
+.card-overlay {
+  background: rgba(0,0,0,0.2);
+  background: -webkit-linear-gradient(transparent, rgba(0,0,0,.1),rgba(0,0,0,.1), rgba(0,0,0,.35), rgba(0,0,0,0.8));
+  background: -o-linear-gradient(transparent, rgba(0,0,0,.1),rgba(0,0,0,.1), rgba(0,0,0,.35), rgba(0,0,0,0.8));
+  background: -moz-linear-gradient(transparent, rgba(0,0,0,.1),rgba(0,0,0,.1), rgba(0,0,0,.35), rgba(0,0,0,0.8));
+  background: linear-gradient(transparent, rgba(0,0,0,.1),rgba(0,0,0,.1), rgba(0,0,0,.35), rgba(0,0,0,0.8));
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .sub-heading {
@@ -427,7 +447,7 @@ footer .copyright {
 }
 
 footer .footer-content {
-  width: 80%;
+  width: 85%;
 }
 
 @media (min-width:800px) {
@@ -435,3 +455,41 @@ footer .footer-content {
     width: 65%;
   }
 }
+
+/* The ribbons */
+
+.corner-ribbon{
+  width: 200px;
+  background: #e43;
+  position: absolute;
+  text-align: center;
+  line-height: 32px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky{
+  position: absolute;
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.corner-ribbon.top-left{
+  top: 10px;
+  left: -70px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+
+/* Colors */
+
+.corner-ribbon.red{background: #e43;}

@@ -11,6 +11,9 @@
       </div>
       <div class="three cols">
         <h5><i class="icon ion-pricetag"></i>&nbsp;人気タグ</h5>
+        <% @footer_tags.each do |tag| %>
+          <%= render 'layouts/tag', tag: tag %>
+        <% end %>
       </div>
       <div class="three cols">
         <h5><i class="icon ion-heart"></i>&nbsp;おすすめサイト</h5>

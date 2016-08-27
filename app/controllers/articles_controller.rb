@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.tagged_with(params[:search]).published
+    @articles = Article.tagged_with(params[:search]).published.page(params[:page])
     @title = "『#{ params[:search] }』の動画"
   end
 
@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
 
   def manage
     @category = Category.new
-    @articles = Article.all
+    @articles = Article.all.page(params[:page])
   end
 
   def nukistream

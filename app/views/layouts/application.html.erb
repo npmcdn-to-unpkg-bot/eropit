@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @title %> | Nampa Picks</title>
+    <% if request.path == root_path %>
+      <title>Nampa Picks [ナンパピックス]</title>
+    <% else %>
+      <title><%= @title %>|Nampa Picks [ナンパピックス]</title>
+    <% end %>
     <meta name="viewport" content="width=device-width,target-densitydpi=medium-dpi,initial-scale=1,minimum-scale=1,shrink-to-fit=no">
     <meta name="google-site-verification" content="xp41dzhu_1MWhm_uzuc193aOOBRCcqfmQ53TwqCgyus" />
     <%= csrf_meta_tags %>

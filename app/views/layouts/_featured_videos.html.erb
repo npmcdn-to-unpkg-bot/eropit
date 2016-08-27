@@ -1,0 +1,12 @@
+<div class="latest-videos">
+  <div class="row">
+    <h6 class="sub-heading"><i class="icon ion-speakerphone"></i>&nbsp;当サイトおすすめ動画</h6>
+  </div>
+  <div class="row">
+    <% @recommendations.each do |article| %>
+      <div class="three cols card">
+        <%= render 'layouts/photo_article_card', article: article %>
+      </div>
+    <% end %>
+  </div>
+</div>

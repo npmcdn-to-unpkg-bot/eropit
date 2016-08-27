@@ -1,20 +1,11 @@
 <div class="row">
+  <%= render 'layouts/featured_videos' %>
+</div>
+<div class="row">
   <div class="left three cols">
     <%= render 'layouts/sidebar' %>
   </div>
   <div class="right nine cols">
-    <div class="latest-videos">
-      <div class="row">
-        <h6 class="sub-heading"><i class="icon ion-speakerphone"></i>&nbsp;当サイトおすすめ動画</h6>
-      </div>
-      <div class="row">
-        <% @recommendations.each do |article| %>
-          <div class="four cols card">
-            <%= render 'layouts/photo_article_card', article: article %>
-          </div>
-        <% end %>
-      </div>
-    </div>
     <div class="popular-videos">
       <div class="row">
         <h6 class="sub-heading"><i class="icon ion-ribbon-b"></i>&nbsp;人気動画</h6>

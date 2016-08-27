@@ -83,6 +83,7 @@ select {
   margin-bottom: 4px;
   display: inline-block;
   cursor: pointer;
+  font-weight: 100;
 }
 .tag:hover {
   opacity: 0.8;
@@ -118,24 +119,33 @@ select {
 }
 .card .summary img {
   height: 120px;
-  width: 55%;
+  width: 50%;
+  position: relative;
 }
 .card .summary .info {
   height: 120px;
   position: relative;
-  width: 42.5%;
+  width: 47%;
   font-size: 14px;
   line-height: 1.25;
   float: right;
   overflow: hidden;
 }
 
-.card .summary .video-summary .host {
+.card .summary .video-summary .duration {
   position: absolute;
   bottom: 0;
   left: 0;
   color: #999;
-  font-size: 12px;
+  font-size: 13px;
+}
+
+.card .summary .video-summary .host {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #999;
+  font-size: 13px;
 }
 
 .card .summary .video-summary p {
@@ -189,6 +199,9 @@ select {
 }
 .sidebar-search  {
   padding: 8px 16px 12px 16px !important;
+}
+.sidebar-search form {
+  padding: 0 !important;
 }
 .sidebar-search input {
   margin-top: 8px;

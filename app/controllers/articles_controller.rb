@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find_by(id: params[:id])
-    @related_articles = Article.related(@article.category_id, @article.id).published
+    @related_articles = Article.related(@article.category_id, @article.id).published.limit(6)
     @title = @article.title
     create_view(@article.id)
   end

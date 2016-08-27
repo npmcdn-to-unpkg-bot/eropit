@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     end
   end
   get 'admin', to: 'articles#manage'
+  get 'fetch/nukistream', to: 'articles#nukistream'
 end

@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
     url = 'http://www.nukistream.com'
 
     charset = nil
-    html = open(url) do |f|
+    html = open(url + '/category.php?id=27') do |f|
       charset = f.charset
       f.read
     end

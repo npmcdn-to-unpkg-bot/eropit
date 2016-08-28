@@ -268,6 +268,10 @@ select {
   overflow: hidden;
 }
 
+.favorite-menu {
+  cursor: pointer;
+}
+
 .favorite-heading {
   font-size: 20px;
   margin: 4px 0 12px 0;
@@ -663,7 +667,7 @@ footer .footer-content {
   color: #ff4d4d;
 }
 
-.alert .favorite-link {
+.alert .favorite-menu {
   float: right;
   line-height: 50px;
   color: rgba(235,116,19,1);
@@ -696,7 +700,7 @@ footer .footer-content {
     line-height: 30px;
     color: #ff4d4d;
   }
-  .alert .favorite-link {
+  .alert .favorite-menu {
     float: right;
     line-height: 30px;
     color: rgba(235,116,19,1);

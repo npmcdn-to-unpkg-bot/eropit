@@ -1,8 +1,9 @@
-<%= link_to article_path(id: article.id) do %>
   <div class="head">
+    <%= link_to article_path(id: article.id) do %>
     <i class="icon ion-ios-film"></i>&nbsp;<%= article.title %>
+    <% end %>
+    <span data-video-id="<%= article.id %>" class="add-favorite-btn"><i class="icon ion-plus"></i>&nbsp;お気に入りに追加</span>
   </div>
-<% end %>
 <div class="body summary">
   <%= link_to article_path(id: article.id) do %>
     <img src="<%= article.thumbnail %>" alt="<%= article.title %>" />

@@ -37,7 +37,7 @@ select {
 }
 .erp-header-wrapper .left {
   margin: auto;
-  width: 60px;
+  width: 72px;
 }
 .erp-header-wrapper .center {
   width: 80%;
@@ -50,7 +50,7 @@ select {
   margin: auto;
   position: relative;
   line-height: 8px;
-  width: 60px;
+  width: 72px;
 }
 .erp-header-wrapper .right p {
   font-size: 10px;
@@ -266,6 +266,10 @@ select {
                #E37D8F 29px 29px,
                #E37D8F 30px 30px;
   overflow: hidden;
+}
+
+.favorite-menu {
+  cursor: pointer;
 }
 
 .favorite-heading {
@@ -663,7 +667,7 @@ footer .footer-content {
   color: #ff4d4d;
 }
 
-.alert .favorite-link {
+.alert .favorite-menu {
   float: right;
   line-height: 50px;
   color: rgba(235,116,19,1);
@@ -696,7 +700,7 @@ footer .footer-content {
     line-height: 30px;
     color: #ff4d4d;
   }
-  .alert .favorite-link {
+  .alert .favorite-menu {
     float: right;
     line-height: 30px;
     color: rgba(235,116,19,1);

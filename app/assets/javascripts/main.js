@@ -115,29 +115,27 @@ jQuery(document).ready(function($){
 	}
 
 	$('.add-favorite-btn').click(function () {
-		var favoriteVideoKeys = [];
-		var favoriteVideoId = [];
-		for (var i = 0; i < localStorage.length; ++i) {
-			favoriteVideoKeys.push(localStorage.key(i));
-			var key = localStorage.key(i);
-			favoriteVideoId.push(localStorage.getItem(key));
-		}
+		var favoriteVideoIds = localStorage.getItem('favoriteVideoIds');
+		var videoId = String($(this).data('videoId'));
 
-		var num = localStorage.length + 1;
-		var id = String($(this).data('videoId'));
-		var key = "erpFavorite" + num;
-		console.log(favoriteVideoId.indexOf(id));
-		console.log(id);
-		var item = localStorage.getItem(key);
-
-		if(favoriteVideoId.indexOf(id) >= 0){
-			addFavoriteAlert('error');
-		} else {
-			localStorage.setItem(key, id);
-			addFavoriteAlert('success');
-			applyFavoriteBadge();
-			$('.cd-auto-hide-header').removeClass('is-hidden');
-		};
+		if (favoriteVideoIds == null) {
+				ids = [];
+				ids.push(videoId);
+				localStorage.setItem('favoriteVideoIds', JSON.stringify(ids));
+			} else {
+	 			ids = JSON.parse(favoriteVideoIds);
+	 			if ($.inArray(videoId, ids) == -1) {
+	 				ids.push(videoId)
+	 				localStorage.setItem('favoriteVideoIds', JSON.stringify(ids));
+					addFavoriteAlert('success');
+					applyFavoriteBadge();
+					$('.cd-auto-hide-header').removeClass('is-hidden');
+	 			} else {
+	 				addFavoriteAlert('error');
+					applyFavoriteBadge();
+					$('.cd-auto-hide-header').removeClass('is-hidden');
+	 			}
+	 		}
 
 	});
 
@@ -154,11 +152,11 @@ jQuery(document).ready(function($){
 
 	if (result == "success") {
 			$('.alert-wrapper').hide();
-			$('.alert-wrapper').append('<div class="alert"><span><i class="icon ion-checkmark-circled"></i>&nbsp;お気に入りに追加しました！</span><a class="favorite-link"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
+			$('.alert-wrapper').append('<div class="alert"><span><i class="icon ion-checkmark-circled"></i>&nbsp;お気に入りに追加しました！</span><a class="favorite-menu"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
 			$('.alert-wrapper').fadeIn();
 		}else {
 			$('.alert-wrapper').hide();
-			$('.alert-wrapper').append('<div class="alert"><span class="error"><i class="icon ion-close-circled"></i>&nbsp;既に登録されています！</span><a class="favorite-link"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
+			$('.alert-wrapper').append('<div class="alert"><span class="error"><i class="icon ion-close-circled"></i>&nbsp;既に登録されています！</span><a class="favorite-menu"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
 			$('.alert-wrapper').fadeIn();
 		}
 	}
@@ -173,6 +171,14 @@ jQuery(document).ready(function($){
 	function removeFavoriteVideos() {
 		localStorage.clear();
 	}
+
+	$('.favorite-menu').click(function () {
+		var favoriteVideoIds = localStorage.getItem('favoriteVideoIds');
+		if (favoriteVideoIds == null) {
+			return;
+		}
+		window.location.href = window.location.origin + "/articles/favorites?ids=" + encodeURIComponent(JSON.parse(favoriteVideoIds));
+	});
 
 	function applyFavoriteBadge() {
 		if (localStorage.length != 0) {

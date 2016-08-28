@@ -9,9 +9,8 @@
           <div class="twelve cols card">
               <div class="head">
                 <%= link_to article_path(id: article.id), target: '_blank' do %>
-                <i class="icon ion-ios-film"></i>&nbsp;<%= article.title %>&nbsp;<i class="icon ion-share"></i>
+                  <i class="icon ion-ios-film"></i>&nbsp;<%= article.title %>&nbsp;<i class="icon ion-share"></i>
                 <% end %>
-
                 <span class="published-switch">
                   <div class="qwertize">
                     <div class="switch" style="width: 160px; margin-top: 4px; margin-left: -140px;">
@@ -41,12 +40,10 @@
             </div>
             <%= link_to edit_article_path(id: article.id) do %>
               <span class="edit-btn"><i class="icon ion-edit"></i>&nbsp;Edit</span>
+            <% end %>
+            <%= link_to article_path(id: article.id), method: :delete do %>
               <span class="delete-btn"><i class="icon ion-trash-a"></i>&nbsp;Delete</span>
             <% end %>
-            <%= link_to edit_article_path(id: article.id) do %>
-              <span class="edit-btn"><i class="icon ion-edit"></i>&nbsp;Edit</span>
-            <% end %>
-              <span class="delete-btn"><i class="icon ion-trash-a"></i>&nbsp;Delete</span>
           </div>
         <% end %>
       </div>

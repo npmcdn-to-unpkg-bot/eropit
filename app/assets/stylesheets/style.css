@@ -23,13 +23,54 @@ select {
   font-family: 'Rammetto One', cursive;
   color: #333;
 }
-
-.logo-wrapper {
-  max-width: 1200px;
+.logo p {
+  margin-top: -22px;
+  font-size: 10px;
+  transform: scale(0.85);
+  line-height: 2.8;
+}
+.erp-header-wrapper {
+  width: 1200px;
   margin: auto;
   text-align: center;
+  display: flex;
 }
-
+.erp-header-wrapper .left {
+  width: 10%;
+  margin: auto;
+  min-width: 100px;
+}
+.erp-header-wrapper .center {
+  width: 80%;
+  margin: auto;
+}
+.erp-header-wrapper .center p {
+  margin-bottom: 0;
+}
+.erp-header-wrapper .right {
+  margin: auto;
+  width: 10%;
+  position: relative;
+  line-height: 8px;
+  min-width: 100px;
+}
+.erp-header-wrapper .right p {
+  font-size: 10px;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.erp-header-wrapper .right i {
+  font-size: 24px;
+}
+.erp-header-wrapper .right .favorite-badge {
+  font-size: 24px;
+  position: absolute;
+  background-color: rgba(235,116,19,1);
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  display: none;
+}
 .erp-header {
   background-color: #fff;
   height: 60px;
@@ -46,7 +87,7 @@ select {
 
 .erp-header .logo {
   font-size: 20px;
-  line-height: 60px;
+  line-height: 50px;
 }
 
 .wrapper {
@@ -639,7 +680,7 @@ footer .footer-content {
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
     background-color: #333;
     color: #ccc;
-    opacity: 0.9;
+    opacity: 0.85;
     padding: 24px 36px;
   }
   .alert span {

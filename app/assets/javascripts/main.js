@@ -94,8 +94,11 @@ jQuery(document).ready(function($){
 		var shift_key = e.shiftKey;
 
 		if (shift_key) {
-			if (key_code == 69) {
+			if (key_code == 65) {
 				location.href = "/admin";
+			}
+			if (key_code == 78) {
+				location.href = "/articles/new";
 			}
 		}
 	}
@@ -105,5 +108,7 @@ jQuery(document).ready(function($){
 	}else if(document.attachEvent){
 		document.attachEvent("onkeydown" , KeyDownFunc);
 	}
+
+
 
 });

@@ -169,6 +169,11 @@ select {
   width: 50%;
   position: relative;
 }
+.admin-cards .card .summary img {
+  height: 120px;
+  width: 20%;
+  position: relative;
+}
 .card .summary .info {
   height: 120px;
   position: relative;
@@ -179,6 +184,43 @@ select {
   overflow: hidden;
 }
 
+.admin-cards .card .summary .info {
+  height: 120px;
+  position: relative;
+  width: 77%;
+  font-size: 14px;
+  line-height: 1.25;
+  float: right;
+  overflow: hidden;
+}
+.admin-cards .card {
+  position: relative;
+}
+.edit-btn {
+  position: absolute;
+  right: 108px;
+  background: rgba(235,116,19,1);
+  bottom: 0;
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 4px 0 0 0;
+}
+.delete-btn {
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  background: rgba(173,30,37,1);
+  color: #fff;
+  padding: 8px 22px;
+}
+.published-switch {
+  position: absolute;
+  right: 4px;
+  top: 0;
+}
+.published-switch label {
+  line-height: 26px !important;
+}
 .card .summary .video-summary .duration {
   position: absolute;
   bottom: 0;

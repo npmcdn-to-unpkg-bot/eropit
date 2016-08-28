@@ -3,29 +3,50 @@
     <%= render 'layouts/manage_side_bar' %>
   </div>
   <div class="right nine cols">
-    <% @articles.each_slice(3) do |articles| %>
-      <div class="row">
+    <% @articles.each_slice(1) do |articles| %>
+      <div class="row admin-cards">
         <% articles.each do |article| %>
-          <div class="four cols card">
-            <%= link_to edit_article_path(id: article.id) do %>
+          <div class="twelve cols card">
               <div class="head">
-                <i class="icon ion-ios-film"></i>&nbsp;<%= article.title %>
+                <%= link_to article_path(id: article.id), target: '_blank' do %>
+                <i class="icon ion-ios-film"></i>&nbsp;<%= article.title %>&nbsp;<i class="icon ion-share"></i>
+                <% end %>
+
+                <span class="published-switch">
+                  <div class="qwertize">
+                    <div class="switch" style="width: 160px; margin-top: 4px; margin-left: -140px;">
+                      <input type="radio" name="lang-switch" id="lang-switch_1" value="1" checked="checked">
+                      <label for="lang-switch_1" data-label="下書き">下書き</label>
+                      <input type="radio" name="lang-switch" id="lang-switch_0" value="0">
+                      <label for="lang-switch_0" data-label="公開">公開</label>
+                    </div>
+                  </div>
+                </span>
               </div>
-            <% end %>
             <div class="body summary">
-              <%= link_to edit_article_path(id: article.id) do %>
+              <%= link_to article_path(id: article.id), target: '_blank' do %>
                 <img src="<%= article.thumbnail %>" alt="<%= article.title %>" />
               <% end %>
               <div class="info video-summary">
-                <p><%= article.description %></p>
+                <p style="margin-bottom: -6px;"><%= article.description %></p>
                 <div class="host">
                   <i class="icon ion-earth"></i>&nbsp;<%= article.host %>
                 </div>
+                <div class="admin-tags" style="width: 464px">
+                  <% article.tag_list.each do |tag| %>
+                    <%= render 'layouts/tag', tag: tag %>
+                  <% end %>
+                </div>
               </div>
-              <% article.tag_list.each do |tag| %>
-                <%= render 'layouts/tag', tag: tag %>
-              <% end %>
             </div>
+            <%= link_to edit_article_path(id: article.id) do %>
+              <span class="edit-btn"><i class="icon ion-edit"></i>&nbsp;Edit</span>
+              <span class="delete-btn"><i class="icon ion-trash-a"></i>&nbsp;Delete</span>
+            <% end %>
+            <%= link_to edit_article_path(id: article.id) do %>
+              <span class="edit-btn"><i class="icon ion-edit"></i>&nbsp;Edit</span>
+            <% end %>
+              <span class="delete-btn"><i class="icon ion-trash-a"></i>&nbsp;Delete</span>
           </div>
         <% end %>
       </div>

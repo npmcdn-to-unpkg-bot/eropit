@@ -87,4 +87,23 @@ jQuery(document).ready(function($){
 
 	    }
 	}
+
+	function KeyDownFunc(e){
+
+		var key_code = e.keyCode;
+		var shift_key = e.shiftKey;
+
+		if (shift_key) {
+			if (key_code == 69) {
+				location.href = "/admin";
+			}
+		}
+	}
+
+	if(document.addEventListener){
+		document.addEventListener("keydown" , KeyDownFunc);
+	}else if(document.attachEvent){
+		document.attachEvent("onkeydown" , KeyDownFunc);
+	}
+
 });

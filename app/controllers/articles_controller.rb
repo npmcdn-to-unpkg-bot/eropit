@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  skip_before_action :basic_auth, only: [:show, :ranking, :search]
+  skip_before_action :basic_auth, only: [:show, :ranking, :search, :favorites]
   before_action :set_sidebar_tags, only: [:show, :ranking, :search, :favorites]
 
   def show

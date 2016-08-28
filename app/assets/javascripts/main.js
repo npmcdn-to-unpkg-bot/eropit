@@ -151,7 +151,14 @@ jQuery(document).ready(function($){
 		}
 	}
 
-	function removeFavoriteVideos () {
+	$('.remove-favorite-btn').click(function () {
+		removeFavoriteVideos();
+		if(localStorage.length == 0) {
+			alert('お気に入りを削除しました。');
+		}
+	});
+
+	function removeFavoriteVideos() {
 		localStorage.clear();
 	}
 });

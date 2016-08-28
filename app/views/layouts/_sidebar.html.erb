@@ -11,6 +11,9 @@
         <%= link_to ranking_articles_path do %>
           <li><i class="icon ion-ribbon-b"></i>&nbsp;人気動画</li>
         <% end %>
+        <span class="favorite-menu">
+          <li><i class="icon ion-star"></i>&nbsp;お気に入り動画</li>
+        </span>
       </ul>
       <div class="sidebar-search">
         <%= form_tag search_articles_path, method: :get do %>

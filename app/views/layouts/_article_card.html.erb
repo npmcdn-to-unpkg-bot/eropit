@@ -2,7 +2,9 @@
     <%= link_to article_path(id: article.id) do %>
     <i class="icon ion-ios-film"></i>&nbsp;<%= article.title %>
     <% end %>
-    <span data-video-id="<%= article.id %>" class="add-favorite-btn"><i class="icon ion-plus"></i>&nbsp;お気に入りに追加</span>
+    <% if request.path != favorites_articles_path %>
+      <span data-video-id="<%= article.id %>" class="add-favorite-btn"><i class="icon ion-plus"></i>&nbsp;お気に入りに追加</span>
+    <% end %>
   </div>
 <div class="body summary">
   <%= link_to article_path(id: article.id) do %>

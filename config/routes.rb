@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'ranking'
       get 'search'
+      get 'favorites'
     end
   end
   get 'admin', to: 'articles#manage'

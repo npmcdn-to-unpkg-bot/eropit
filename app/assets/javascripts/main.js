@@ -157,6 +157,6 @@ jQuery(document).ready(function($){
 		if (favoriteVideoIds == null) {
 			return;
 		}
-		window.location.href="articles/favorites?ids=" + encodeURIComponent(JSON.parse(favoriteVideoIds));
+		window.location.href = window.location.origin + "/articles/favorites?ids=" + encodeURIComponent(JSON.parse(favoriteVideoIds));
 	});
 });

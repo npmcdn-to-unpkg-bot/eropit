@@ -37,7 +37,7 @@ select {
 }
 .erp-header-wrapper .left {
   margin: auto;
-  width: 60px;
+  width: 72px;
 }
 .erp-header-wrapper .center {
   width: 80%;
@@ -50,7 +50,7 @@ select {
   margin: auto;
   position: relative;
   line-height: 8px;
-  width: 60px;
+  width: 72px;
 }
 .erp-header-wrapper .right p {
   font-size: 10px;

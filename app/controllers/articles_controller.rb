@@ -15,6 +15,9 @@ class ArticlesController < ApplicationController
     @title = '人気動画'
   end
 
+  def favorite
+  end
+
   def search
     @articles = Article.tagged_with(params[:search]).published.page(params[:page])
     @title = "『#{ params[:search] }』の動画"

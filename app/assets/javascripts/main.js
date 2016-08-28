@@ -1,4 +1,8 @@
 jQuery(document).ready(function($){
+	if (localStorage.length != 0) {
+		console.log("favorite exist.")
+		$('.favorite-badge').fadeIn();
+	}
 
 	var mainHeader = $('.cd-auto-hide-header'),
 		secondaryNavigation = $('.cd-secondary-nav'),
@@ -120,36 +124,59 @@ jQuery(document).ready(function($){
 			ids.push(videoId);
 			localStorage.setItem('favoriteVideoIds', JSON.stringify(ids));
 			addFavoriteAlert('success');
+			applyFavoriteBadge();
 		} else {
 			ids = JSON.parse(favoriteVideoIds);
 			if ($.inArray(videoId, ids) == -1) {
 				ids.push(videoId)
 				localStorage.setItem('favoriteVideoIds', JSON.stringify(ids));
 				addFavoriteAlert('success');
+				applyFavoriteBadge();
 			} else {
 				addFavoriteAlert('error');
+				applyFavoriteBadge();
 			}
 		}
 	});
 
+	var alertFlag = true;
+
 	function addFavoriteAlert(result) {
+		if (alertFlag) {
+
+		}
+		setTimeout(function(){
+			$('.alert-wrapper').fadeOut();
+			alertFlag = false;
+		}, 5000);
+
 	if (result == "success") {
+			$('.alert-wrapper').hide();
 			$('.alert-wrapper').append('<div class="alert"><span><i class="icon ion-checkmark-circled"></i>&nbsp;お気に入りに追加しました！</span><a class="favorite-link"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
 			$('.alert-wrapper').fadeIn();
-			setTimeout(function(){
-				$('.alert-wrapper').fadeOut();
-			},3000);
 		}else {
+			$('.alert-wrapper').hide();
 			$('.alert-wrapper').append('<div class="alert"><span class="error"><i class="icon ion-close-circled"></i>&nbsp;既に登録されています！</span><a class="favorite-link"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
 			$('.alert-wrapper').fadeIn();
-			setTimeout(function(){
-				$('.alert-wrapper').fadeOut();
-			},3000);
 		}
 	}
 
-	function removeFavoriteVideos () {
+	$('.remove-favorite-btn').click(function () {
+		removeFavoriteVideos();
+		if(localStorage.length == 0) {
+			alert('お気に入りを削除しました。');
+		}
+	});
+
+	function removeFavoriteVideos() {
 		localStorage.clear();
+	}
+
+	function applyFavoriteBadge() {
+		if (localStorage.length != 0) {
+			console.log("favorite exist.")
+			$('.favorite-badge').fadeIn();
+		}
 	}
 
 	$('.favorite-menu').click(function () {

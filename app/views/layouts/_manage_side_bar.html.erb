@@ -11,9 +11,18 @@
         <%= link_to admin_path do %>
           <li><i class="icon ion-ios-speedometer"></i>&nbsp;記事管理</li>
         <% end %>
-        <a href="#" target="_blank"><li><i class="icon ion-ios-analytics"></i>&nbsp;Analytics</li></a>
-        <a href="https://github.com/boobee/eropit#boards" target="_blank"><li><i class="icon ion-social-github"></i>&nbsp;Github Board</li></a>
-        <a href="https://www.google.com/webmasters/tools/dashboard?hl=ja&authuser=1&siteUrl=http://nampa-picks.net/" target="_blank"><li class="last"><i class="icon ion-ios-cog-outline"></i>&nbsp;Search console</li></a>
+        <%= link_to "#", class: '', target: 'blank' do %>
+          <li><i class="icon ion-ios-analytics"></i>&nbsp;Analytics</li>
+        <% end %>
+        <%= link_to "https://github.com/boobee/eropit#boards", class: '', target: 'blank' do %>
+          <li><i class="icon ion-social-github"></i>&nbsp;Github Board</li>
+        <% end %>
+        <%= link_to "https://www.google.com/webmasters/tools/dashboard?hl=ja&authuser=1&siteUrl=http://nampa-picks.net/", class: '', target: 'blank' do %>
+          <li><i class="icon ion-ios-cog-outline"></i>&nbsp;Search console</li>
+        <% end %>
+        <%= link_to fetch_nukistream_path, class: '' do %>
+          <li class="last"><i class="icon ion-document-text"></i>&nbsp;Fetch nukistream.com</li>
+        <% end %>
       </ul>
     </div>
     <div class="foot">

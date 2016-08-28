@@ -1,13 +1,13 @@
 class ArticlesController < ApplicationController
-  skip_before_action :basic_auth, only: [:show, :ranking, :search]
-  before_action :set_sidebar_tags, only: [:show, :ranking, :search]
+  skip_before_action :basic_auth, only: [:show, :ranking, :search, :favorites]
+  before_action :set_sidebar_tags, only: [:show, :ranking, :search, :favorites]
 
   def show
     @article = Article.find_by(id: params[:id])
     @related_articles = Article.related(@article.category_id, @article.id).published.limit(6)
+    @recommendations = Article.tagged_with(ActsAsTaggableOn::Tag.most_used, :any => true).published.take(4)
     @title = @article.title
     create_view(@article.id)
-    @recommendations = Article.tagged_with(ActsAsTaggableOn::Tag.most_used, :any => true).take(4)
   end
 
   def ranking
@@ -21,6 +21,12 @@ class ArticlesController < ApplicationController
   def search
     @articles = Article.tagged_with(params[:search]).published.page(params[:page])
     @title = "『#{ params[:search] }』の動画"
+  end
+
+  def favorites
+    ids = params[:ids].split(',')
+    @favorite_articles = Article.where(id: ids).published.page(params[:page])
+    @title = 'お気に入り動画'
   end
 
   def new

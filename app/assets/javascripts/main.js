@@ -115,30 +115,28 @@ jQuery(document).ready(function($){
 	}
 
 	$('.add-favorite-btn').click(function () {
-		var favoriteVideoKeys = [];
-		var favoriteVideoId = [];
-		for (var i = 0; i < localStorage.length; ++i) {
-			favoriteVideoKeys.push(localStorage.key(i));
-			var key = localStorage.key(i);
-			favoriteVideoId.push(localStorage.getItem(key));
-		}
 
-		var num = localStorage.length + 1;
-		var id = String($(this).data('videoId'));
-		var key = "erpFavorite" + num;
-		console.log(favoriteVideoId.indexOf(id));
-		console.log(id);
-		var item = localStorage.getItem(key);
+		var favoriteVideoIds = localStorage.getItem('favoriteVideoIds');
+		var videoId = String($(this).data('videoId'));
 
-		if(favoriteVideoId.indexOf(id) >= 0){
-			addFavoriteAlert('error');
-			applyFavoriteBadge();
-		} else {
-			localStorage.setItem(key, id);
+		if (favoriteVideoIds == null) {
+			ids = [];
+			ids.push(videoId);
+			localStorage.setItem('favoriteVideoIds', JSON.stringify(ids));
 			addFavoriteAlert('success');
 			applyFavoriteBadge();
-		};
-
+		} else {
+			ids = JSON.parse(favoriteVideoIds);
+			if ($.inArray(videoId, ids) == -1) {
+				ids.push(videoId)
+				localStorage.setItem('favoriteVideoIds', JSON.stringify(ids));
+				addFavoriteAlert('success');
+				applyFavoriteBadge();
+			} else {
+				addFavoriteAlert('error');
+				applyFavoriteBadge();
+			}
+		}
 	});
 
 	var alertFlag = true;
@@ -180,4 +178,12 @@ jQuery(document).ready(function($){
 			$('.favorite-badge').fadeIn();
 		}
 	}
+
+	$('.favorite-menu').click(function () {
+		var favoriteVideoIds = localStorage.getItem('favoriteVideoIds');
+		if (favoriteVideoIds == null) {
+			return;
+		}
+		window.location.href = window.location.origin + "/articles/favorites?ids=" + encodeURIComponent(JSON.parse(favoriteVideoIds));
+	});
 });

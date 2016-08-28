@@ -66,9 +66,19 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    article = Article.find_by(id: params[:id])
+    if article.destroy
+      redirect_to admin_path
+    else
+      redirect_to admin_path
+    end
+  end
+
   def manage
     @category = Category.new
     @articles = Article.all.page(params[:page])
+    @title = 'Admin'
   end
 
   def nukistream

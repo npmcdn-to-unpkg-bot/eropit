@@ -122,6 +122,9 @@ jQuery(document).ready(function($){
 				ids = [];
 				ids.push(videoId);
 				localStorage.setItem('favoriteVideoIds', JSON.stringify(ids));
+				addFavoriteAlert('success');
+				applyFavoriteBadge();
+				$('.cd-auto-hide-header').removeClass('is-hidden');
 			} else {
 	 			ids = JSON.parse(favoriteVideoIds);
 	 			if ($.inArray(videoId, ids) == -1) {
@@ -172,7 +175,7 @@ jQuery(document).ready(function($){
 		localStorage.clear();
 		if (localStorage.length == 0) {
 			alert("お気に入りを削除しました!");
-			location.href = "/";
+			location.href = location.origin + "/articles/favorites";
 		}else {
 			alert("削除に失敗しました。");
 		}
@@ -183,7 +186,7 @@ jQuery(document).ready(function($){
 		if (favoriteVideoIds == null) {
 			return;
 		}
-		window.location.href = window.location.origin + "/articles/favorites?ids=" + encodeURIComponent(JSON.parse(favoriteVideoIds));
+		location.href = location.origin + "/articles/favorites?ids=" + encodeURIComponent(JSON.parse(favoriteVideoIds));
 	});
 
 	function applyFavoriteBadge() {

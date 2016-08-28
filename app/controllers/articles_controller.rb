@@ -15,17 +15,18 @@ class ArticlesController < ApplicationController
     @title = '人気動画'
   end
 
-  def favorite
-  end
-
   def search
     @articles = Article.tagged_with(params[:search]).published.page(params[:page])
     @title = "『#{ params[:search] }』の動画"
   end
 
   def favorites
-    ids = params[:ids].split(',')
-    @favorite_articles = Article.where(id: ids).published.page(params[:page])
+    if params[:ids].present?
+      ids = params[:ids].to_s.split(',')
+      @favorite_articles = Article.where(id: ids).published.page(params[:page])
+    else
+      @favorite_articles = Article.where(id: 0).page(params[:page])
+    end
     @title = 'お気に入り動画'
   end
 

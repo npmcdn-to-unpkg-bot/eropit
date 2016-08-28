@@ -168,9 +168,15 @@ jQuery(document).ready(function($){
 		}
 	});
 
-	function removeFavoriteVideos() {
+	$('.remove-favorites').click(function () {
 		localStorage.clear();
-	}
+		if (localStorage.length == 0) {
+			alert("お気に入りを削除しました!");
+			location.href = "/";
+		}else {
+			alert("削除に失敗しました。");
+		}
+	});
 
 	$('.favorite-menu').click(function () {
 		var favoriteVideoIds = localStorage.getItem('favoriteVideoIds');

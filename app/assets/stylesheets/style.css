@@ -36,9 +36,8 @@ select {
   display: flex;
 }
 .erp-header-wrapper .left {
-  width: 10%;
   margin: auto;
-  min-width: 60px;
+  width: 60px;
 }
 .erp-header-wrapper .center {
   width: 80%;
@@ -49,10 +48,9 @@ select {
 }
 .erp-header-wrapper .right {
   margin: auto;
-  width: 10%;
   position: relative;
   line-height: 8px;
-  min-width: 60px;
+  width: 60px;
 }
 .erp-header-wrapper .right p {
   font-size: 10px;

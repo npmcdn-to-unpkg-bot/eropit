@@ -60,6 +60,11 @@ select {
   margin-bottom: 0;
   line-height: 1.1;
 }
+@media (max-width:800px) {
+  .erp-header-wrapper .right p {
+    transform: scale(0.8);
+  }
+}
 .erp-header-wrapper .right i {
   font-size: 24px;
 }

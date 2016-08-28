@@ -52,7 +52,9 @@ select {
 .wrapper {
   margin-top: 60px;
 }
-
+.pack {
+  padding: 12px;
+}
 .card .image-head h5 {
   font-size: 14px;
 }

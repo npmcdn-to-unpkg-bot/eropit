@@ -542,10 +542,15 @@ footer .footer-content {
   height:50px;
   background-color:#333;
   color:#fff;
-  padding: 0 12px;
+  padding: 0 24px;
 }
 .alert span {
   line-height: 50px;
+}
+.alert .error {
+  position:absolute;
+  line-height: 50px;
+  color: #ff4d4d;
 }
 
 .alert .favorite-link {
@@ -576,7 +581,11 @@ footer .footer-content {
     position:absolute;
     line-height: 30px;
   }
-
+  .alert .error {
+    position:absolute;
+    line-height: 30px;
+    color: #ff4d4d;
+  }
   .alert .favorite-link {
     float: right;
     line-height: 30px;

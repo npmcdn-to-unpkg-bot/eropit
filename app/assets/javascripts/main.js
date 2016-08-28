@@ -143,7 +143,7 @@ jQuery(document).ready(function($){
 				$('.alert-wrapper').fadeOut();
 			},3000);
 		}else {
-			$('.alert-wrapper').append('<div class="alert"><span><i class="icon ion-close-circled"></i>&nbsp;既に登録されています！</span><a class="favorite-link"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
+			$('.alert-wrapper').append('<div class="alert"><span class="error"><i class="icon ion-close-circled"></i>&nbsp;既に登録されています！</span><a class="favorite-link"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
 			$('.alert-wrapper').fadeIn();
 			setTimeout(function(){
 				$('.alert-wrapper').fadeOut();

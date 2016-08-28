@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){
+
 	var mainHeader = $('.cd-auto-hide-header'),
 		secondaryNavigation = $('.cd-secondary-nav'),
 		//this applies only if secondary nav is below intro section
@@ -109,6 +110,48 @@ jQuery(document).ready(function($){
 		document.attachEvent("onkeydown" , KeyDownFunc);
 	}
 
+	$('.add-favorite-btn').click(function () {
+		var favoriteVideoKeys = [];
+		var favoriteVideoId = [];
+		for (var i = 0; i < localStorage.length; ++i) {
+			favoriteVideoKeys.push(localStorage.key(i));
+			var key = localStorage.key(i);
+			favoriteVideoId.push(localStorage.getItem(key));
+		}
 
+		var num = localStorage.length + 1;
+		var id = String($(this).data('videoId'));
+		var key = "erpFavorite" + num;
+		console.log(favoriteVideoId.indexOf(id));
+		console.log(id);
+		var item = localStorage.getItem(key);
 
+		if(favoriteVideoId.indexOf(id) >= 0){
+			addFavoriteAlert('error');
+		} else {
+			localStorage.setItem(key, id);
+			addFavoriteAlert('success');
+		};
+
+	});
+
+	function addFavoriteAlert(result) {
+	if (result == "success") {
+			$('.alert-wrapper').append('<div class="alert"><span><i class="icon ion-checkmark-circled"></i>&nbsp;お気に入りに追加しました！</span><a class="favorite-link"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
+			$('.alert-wrapper').fadeIn();
+			setTimeout(function(){
+				$('.alert-wrapper').fadeOut();
+			},3000);
+		}else {
+			$('.alert-wrapper').append('<div class="alert"><span><i class="icon ion-close-circled"></i>&nbsp;既に登録されています！</span><a class="favorite-link"><i class="icon ion-star"></i>&nbsp;一覧</a></div>');
+			$('.alert-wrapper').fadeIn();
+			setTimeout(function(){
+				$('.alert-wrapper').fadeOut();
+			},3000);
+		}
+	}
+
+	function removeFavoriteVideos () {
+		localStorage.clear();
+	}
 });

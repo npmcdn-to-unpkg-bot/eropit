@@ -15,9 +15,16 @@
             <img src="<%= @article.thumbnail %>" width="100%" alt="<%= @article.title %>" />
           <% end %>
           <div class="video-info">
-            <%= link_to @article.link, target: "_blank" do %>
-              <h1 class="video-title"><%= @article.title %></h1>
-            <% end %>
+            <div class="row" style="position: relative;">
+              <div class="ten cols">
+                <%= link_to @article.link, target: "_blank" do %>
+                  <h1 class="video-title"><%= @article.title %></h1>
+                <% end %>
+              </div>
+              <div class="two cols">
+                <span data-video-id="<%= @article.id %>" class="add-favorite-btn"><i class="icon ion-plus"></i>&nbsp;お気に入りに追加</span>
+              </div>
+            </div>
             <div class="video-meta">
               <span class="left video-duration"><i class="icon ion-clock"></i>&nbsp;再生時間：<%= @article.duration %></span>
               <span class="right video-host"><i class="icon ion-earth"></i>&nbsp;<%= @article.host %></span>

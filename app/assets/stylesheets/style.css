@@ -38,7 +38,7 @@ select {
 .erp-header-wrapper .left {
   width: 10%;
   margin: auto;
-  min-width: 100px;
+  min-width: 60px;
 }
 .erp-header-wrapper .center {
   width: 80%;
@@ -52,12 +52,13 @@ select {
   width: 10%;
   position: relative;
   line-height: 8px;
-  min-width: 100px;
+  min-width: 60px;
 }
 .erp-header-wrapper .right p {
   font-size: 10px;
   display: inline-block;
   margin-bottom: 0;
+  line-height: 1.1;
 }
 .erp-header-wrapper .right i {
   font-size: 24px;

@@ -689,14 +689,6 @@ footer .footer-content {
   cursor: pointer;
 }
 
-.remove-favorite-btn {
-  color: maroon;
-  border-bottom: dashed 1px maroon;
-  float: right;
-  margin-bottom: 12px;
-  cursor: pointer;
-}
-
 .alert {
   position:fixed;
   left:0;

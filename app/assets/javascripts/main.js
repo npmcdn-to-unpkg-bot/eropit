@@ -164,13 +164,6 @@ jQuery(document).ready(function($){
 		}
 	}
 
-	$('.remove-favorite-btn').click(function () {
-		removeFavoriteVideos();
-		if(localStorage.length == 0) {
-			alert('お気に入りを削除しました。');
-		}
-	});
-
 	$('.remove-favorites').click(function () {
 		localStorage.clear();
 		if (localStorage.length == 0) {

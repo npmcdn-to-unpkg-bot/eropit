@@ -6,7 +6,11 @@
     <div class="feature-videos">
       <div class="row">
         <h6 class="favorite-heading"><i class="icon ion-star"></i>&nbsp;お気に入り動画</h6>
-        <a class="remove-favorites"><i class="icon ion-trash-a"></i>&nbsp;お気に入りをすべて削除</a>
+        <% if @favorite_articles.size > 0 %>
+          <a class="remove-favorites"><i class="icon ion-trash-a"></i>&nbsp;お気に入りをすべて削除</a>
+        <% else %>
+          <p class="tx-center"><i class="icon icon ion-star"></i>&nbsp;お気に入り動画がありません</p>
+        <% end %>
       </div>
       <% @favorite_articles.each_slice(2) do |articles| %>
         <div class="row">

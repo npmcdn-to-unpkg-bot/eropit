@@ -316,6 +316,13 @@ select {
   overflow: hidden;
 }
 
+.remove-favorites {
+  float: right;
+  margin: 2px 0 12px 0;
+  border-bottom: dashed 1px;
+  cursor: pointer;
+}
+
 .detail-heading {
   margin: 20px 0;
   border-bottom:

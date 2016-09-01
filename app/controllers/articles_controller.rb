@@ -181,6 +181,13 @@ class ArticlesController < ApplicationController
     redirect_to admin_path
   end
 
+  def feed
+    @articles = Article.latest.published.limit(20)
+    respond_to do |format|
+      format.rss
+    end
+  end
+
   private
     def article_params
       params.require(:article).permit(:title, :description, :thumbnail, :link, :category_id, :duration, :host, :published, :tag_list)

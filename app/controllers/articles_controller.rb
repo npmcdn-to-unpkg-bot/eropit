@@ -131,6 +131,56 @@ class ArticlesController < ApplicationController
     redirect_to admin_path
   end
 
+  def masutabe
+    url = 'http://masutabe.info'
+
+    charset = nil
+    html = open(url + '/search/%E3%83%8A%E3%83%B3%E3%83%91/') do |f|
+      charset = f.charset
+      f.read
+    end
+
+    doc = Nokogiri::HTML.parse(html, nil, charset)
+    articles = doc.search('article')
+
+    videos = []
+
+    articles.each_with_index do |article, index|
+      next if index == 0
+
+      tags = []
+      article.css('.tagList > li').each do |tag|
+        tags << tag.css('a').text
+      end
+
+      video = {}
+      video[:thumbnail] = article.css('figure > a > img').attribute('src').value
+      video[:duration] = article.css('figure > a > .duration').text
+      video[:title] = article.css('.info > h2 > a').text
+      video[:host] = 'マスタベ'
+      video[:link] = url + article.css('figure > a').attribute('href').value
+      video[:tags] = tags
+      videos << video
+    end
+
+    videos.each do |video|
+      next if Article.exists?(link: video[:link])
+      a = Article.new
+      a.title = video[:title]
+      a.thumbnail = video[:thumbnail]
+      a.duration = video[:duration]
+      a.host = video[:host]
+      a.link = video[:link]
+      a.tag_list.add(video[:tags])
+      a.description = ''
+      a.published = false
+      a.category_id = 1
+      a.save
+    end
+
+    redirect_to admin_path
+  end
+
   private
     def article_params
       params.require(:article).permit(:title, :description, :thumbnail, :link, :category_id, :duration, :host, :published, :tag_list)

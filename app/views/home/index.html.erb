@@ -8,27 +8,10 @@
   </div>
   <div class="right nine cols">
     <div class="tx-center">
-      <div class="hide-xs">
-        <!-- i-mobile for PC client script -->
-        <script type="text/javascript">
-        imobile_pid = "57982";
-        imobile_asid = "1096335";
-        imobile_width = 728;
-        imobile_height = 90;
-        </script>
-        <script type="text/javascript" src="http://spdeliver.i-mobile.co.jp/script/ads.js?20101001"></script>
-      </div>
 
-      <div class="show-xs">
-        <!-- i-mobile for SmartPhone client script -->
-      	<script type="text/javascript">
-      		imobile_tag_ver = "0.3";
-      		imobile_pid = "57982";
-      		imobile_asid = "1096383";
-      		imobile_type = "inline";
-      	</script>
-      	<script type="text/javascript" src="http://spad.i-mobile.co.jp/script/adssp.js?20110215"></script>
-      </div>
+      <%= render 'layouts/ad' %>
+      <%= render 'layouts/ad-mobile' %>
+
     </div>
 
     <div class="popular-videos">
@@ -44,6 +27,13 @@
           <% end %>
         </div>
       <% end %>
+    </div>
+
+    <div class="tx-center">
+
+      <%= render 'layouts/ad' %>
+      <%= render 'layouts/ad-mobile' %>
+
     </div>
 
     <div class="feature-videos">

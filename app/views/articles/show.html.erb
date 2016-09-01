@@ -1,4 +1,8 @@
-
+<% urls = ['http://www.mgstage.com/js/mgs_sample_movie.js?p=200GANA-1077&s=1&c=6PYILNLH26JYZYLKBFKJYBLD3M',
+           'http://www.mgstage.com/js/mgs_sample_movie.js?p=SIRO-2790&s=1&c=6PYILNLH26JYZYLKBFKJYBLD3M',
+           'http://www.mgstage.com/js/mgs_sample_movie.js?p=200GANA-1040&s=1&c=6PYILNLH26JYZYLKBFKJYBLD3M',
+           'http://www.mgstage.com/js/mgs_sample_movie.js?p=230ORE-095&s=1&c=6PYILNLH26JYZYLKBFKJYBLD3M',
+           'http://www.mgstage.com/js/mgs_sample_movie.js?p=277DCV-001&s=1&c=6PYILNLH26JYZYLKBFKJYBLD3M'] %>
 <div class="row">
   <%= render 'layouts/featured_videos' %>
 </div>
@@ -60,7 +64,7 @@
       <h6 class="sub-heading">オススメMGS動画</h6>
     </div>
     <div class="tx-center">
-      <script type="text/javascript" charset="utf-8" src="http://www.mgstage.com/js/mgs_sample_movie.js?p=SIRO-2790&s=1&c=6PYILNLH26JYZYLKBFKJYBLD3M"></script>
+      <script type="text/javascript" charset="utf-8" src="<%= urls[rand(urls.count)] %>"></script>
     </div>
     <%= render 'layouts/sidebar' %>
   </div>

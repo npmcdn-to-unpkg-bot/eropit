@@ -32,6 +32,11 @@
             </div>
             <hr>
             <p><%= @article.description %></p>
+            <%= link_to @article.link, target: "_blank" do %>
+            <div class="tx-center">
+              <span style="margin: 12px 0; width: 100%; padding: 8px;" class="btn btn-md fill-dark"><i class="icon ion-share"></i>&nbsp;動画を見る</span>
+            </div>
+            <% end %>
             <div class="tags">
               <% @article.tag_list.each do |tag| %>
                 <%= render 'layouts/tag', tag: tag %>

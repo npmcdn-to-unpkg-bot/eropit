@@ -82,6 +82,11 @@
     window.onload = function(){
       $('.loading-overlay').hide();
     };
+    
+    $(function(){
+      var imgUrl = $(':text[name="article[thumbnail]"]').val();
+      $('.image-insert').attr('src', imgUrl);
+    });
     </script>
   </body>
 </html>

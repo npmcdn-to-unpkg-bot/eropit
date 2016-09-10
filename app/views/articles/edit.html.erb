@@ -4,6 +4,9 @@
   </div>
   <div class="right nine cols article-form">
     <div class="card">
+      <div class="head tx-center" style="border-bottom: #eee 1px solid">
+        記事編集画面
+      </div>
       <% unless @article.nil? %>
         <% if @article.errors.any? %>
           <% @article.errors.full_messages.each do |msg| %>
@@ -11,32 +14,85 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= form_for @article do |f| %>
-        <label>Title</label>
-        <%= f.text_field :title %>
-        <label>Thumbnail</label>
-        <%= f.text_field :thumbnail %>
-        <label>Description</label>
-        <%= f.text_area :description %>
-        <label>Link</label>
-        <%= f.text_field :link %>
-        <label>Duration</label>
-        <%= f.text_field :duration %>
-        <label>Host</label>
-        <%= f.text_field :host %>
-        <label>Category</label>
-        <%= f.collection_select :category_id, Category.all, :id, :title %>
-        <label>Published</label>
-        <%= f.check_box :published %>
-        <label>Tags</label>
-        <ul id="article-tags"></ul>
-        <%= f.submit 'Save', class: "btn fill-red" %>
-      <% end %>
+      <div class="qwertize">
+        <%= form_for @article do |f| %>
+  
+          <div class="row">
+            <div class="ten cols">
+              <span style="font-weight: 600">渋谷系ギャルをクラブで捕まえてホテルで4P！予想通りSEX大好き痴女でしたｗ</span>
+            </div>           
+            <div class="two cols tx-right">
+              <%= f.check_box :published, class:'' %>
+              <label for="article_published">公開中</label>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="four cols">
+              <img src="" class="image-insert"></img>
+            </div>
+            <div class="eight cols">
+              <label>Thumbnail URL</label>
+              <%= f.text_field :thumbnail %>
+              <label>Link URL</label>
+              <%= f.text_field :link %>
+              <div class="row lower-input">
+                <div class="four cols">
+                  <label>Duration</label>
+                  <%= f.text_field :duration %>
+                </div>
+                <div class="four cols">
+                  <label>Host</label>
+                  <%= f.text_field :host %>
+                </div>
+                <div class="four cols">
+                  <label>Category</label>
+                  <%= f.collection_select :category_id, Category.all, :id, :title %>
+                </div>
+              </div>
+            </div>
+          </div>
+                    
+          <div class="row">
+            <div class="twelve cols">
+              <label>Title</label>
+              <%= f.text_field :title %>
+            </div>
+          </div>          
+                    
+          <div class="row">
+            <div class="twelve cols">
+              <label>Description</label>
+              <%= f.text_area :description %>
+            </div>
+            
+            <label>Tags</label>
+            <ul id="article-tags"></ul>
+          </div>
+
+          </div>
+        <div class="foot">
+          <a href="#" class="full-x card-btn">
+              <%= f.submit '変更を保存', class: "btn fill-red" %>
+          </a>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 <style media="screen">
   .article-form input {
     width: 100%;
+  }
+  .image-insert {
+    width: 100%;
+    height: 222px;
+  }
+  #article_description {
+    min-height: 160px;
+  }
+  .lower-input input {
+    height: 36px;
   }
 </style>

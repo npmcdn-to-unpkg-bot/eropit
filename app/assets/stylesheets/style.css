@@ -168,17 +168,17 @@ select {
   position: relative;
 }
 .card .summary img {
-  height: 120px;
+  height: 132px;
   width: 50%;
   position: relative;
 }
 .admin-cards .card .summary img {
-  height: 120px;
+  height: 132px;
   width: 20%;
   position: relative;
 }
 .card .summary .info {
-  height: 120px;
+  height: 132px;
   position: relative;
   width: 47%;
   font-size: 14px;
@@ -188,7 +188,7 @@ select {
 }
 
 .admin-cards .card .summary .info {
-  height: 120px;
+  height: 132px;
   position: relative;
   width: 77%;
   font-size: 14px;

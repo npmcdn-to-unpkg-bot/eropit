@@ -11,32 +11,69 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= form_for @article do |f| %>
-        <label>Title</label>
-        <%= f.text_field :title %>
-        <label>Thumbnail</label>
-        <%= f.text_field :thumbnail %>
-        <label>Description</label>
-        <%= f.text_area :description %>
-        <label>Link</label>
-        <%= f.text_field :link %>
-        <label>Duration</label>
-        <%= f.text_field :duration %>
-        <label>Host</label>
-        <%= f.text_field :host %>
-        <label>Category</label>
-        <%= f.collection_select :category_id, Category.all, :id, :title %>
-        <label>Published</label>
-        <%= f.check_box :published %>
-        <label>Tags</label>
-        <ul id="article-tags"></ul>
-        <%= f.submit 'Save', class: "btn fill-red" %>
-      <% end %>
+      <div class="qwertize">
+        <%= form_for @article do |f| %>
+  
+          <div class="row">
+            <div class="four cols">
+              <img src="" class="image-insert"></img>
+            </div>
+            <div class="eight cols">
+              <label style="margin-bottom: 1rem;">Thumbnail URL</label>
+              <%= f.text_field :thumbnail %>
+              <label style="margin-bottom: 1rem;">Link URL</label>
+              <%= f.text_field :link %>
+              <div class="row">
+                <div class="four cols">
+                  <label>Duration</label>
+                  <%= f.text_field :duration %>
+                </div>
+                <div class="four cols">
+                  <label>Host</label>
+                  <%= f.text_field :host %>
+                </div>
+                <div class="four cols">
+                  <label>Category</label>
+                  <%= f.collection_select :category_id, Category.all, :id, :title %>
+                </div>
+              </div>
+            </div>
+          </div>
+                    
+          <div class="row">
+            <label>Title</label>
+            <%= f.text_field :title %>
+            
+            <div class="twelve cols">
+              <label>Description</label>
+              <%= f.text_area :description %>
+            </div>
+            
+            <label>Tags</label>
+            <ul id="article-tags"></ul>
+          </div>
+            
+          <div class="row">
+            <div class="twelve cols tx-right">
+              <%= f.check_box :published, class:'' %>
+              <label for="article_published">Published</label>
+            </div>
+            <%= f.submit 'Save', class: "btn fill-red" %>
+
+          </div>
+
+          </div>
+
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 <style media="screen">
-  .article-form input {
+  .article-form input, .image-insert {
     width: 100%;
+  }
+  #article_description {
+    min-height: 160px;
   }
 </style>

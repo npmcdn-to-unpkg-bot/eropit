@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="left three cols">
+    <%= render 'layouts/manage_side_bar' %>
+  </div>
+  <div class="right nine cols">
+    <div class="card">
+      <div class="head">
+        Edit tag
+      </div>
+      <div class="body">
+        <div class="tag-form">
+          <%= form_tag(tag_path(@tag), { method: :put }) do %>
+            <label>Name</label>
+            <%= text_field :tag, :name %>
+            <label>Mean</label>
+            <%= text_field :tag, :mean %>
+            <label>Prefix</label>
+            <%= text_field :tag, :pre_words %>
+            <label>Suffix</label>
+            <%= text_field :tag, :suf_words %>
+            <%= submit_tag 'Save', class: 'btn' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style media="screen">
+  .tag-form input {
+    width: 100%;
+  }
+</style>

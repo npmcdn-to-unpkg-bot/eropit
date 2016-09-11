@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       get 'favorites'
     end
   end
+
+  resources :tags
+  
   get 'admin', to: 'articles#manage'
   get 'fetch/nukistream', to: 'articles#nukistream'
   get 'fetch/masutabe', to: 'articles#masutabe'

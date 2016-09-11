@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :tags
-  
+  get 'fetch', to: 'articles#fetch'
   get 'admin', to: 'articles#manage'
-  get 'fetch/nukistream', to: 'articles#nukistream'
-  get 'fetch/masutabe', to: 'articles#masutabe'
   get 'feed', to: 'articles#feed', format: 'rss'
 end

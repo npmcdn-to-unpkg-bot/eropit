@@ -107,9 +107,8 @@ class FetchVideo
   def save(videos)
     videos.each do |video|
       next if Article.exists?(link: video[:link])
-      morphological_analysis(video[:title])
       a = Article.new
-      a.title = generate_title
+      a.title = generate_title(morphological_analysis(video[:title]))
       a.thumbnail = video[:thumbnail]
       a.duration = video[:duration]
       a.host = video[:host]
@@ -124,7 +123,7 @@ class FetchVideo
 
   def morphological_analysis(title)
     YahooParseApi::Config.app_id = 'dj0zaiZpPWxhUlVicWFhVDd2ayZzPWNvbnN1bWVyc2VjcmV0Jng9YmM-'
-    result = YahooParseApi::Parse.new.parse('にわかにレイプ願望がある美人OL…上司たちにセクハラ挿入され絶頂', {
+    result = YahooParseApi::Parse.new.parse(title, {
       results: 'ma'
     })
     tags = []
@@ -133,6 +132,8 @@ class FetchVideo
       tags << word['surface'] if word['surface'].length > 1
     end
     save_tags(tags)
+
+    tags
   end
 
   def save_tags(tags)

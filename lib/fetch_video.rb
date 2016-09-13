@@ -132,7 +132,7 @@ class FetchVideo
       tags << word['surface'] if word['surface'].length > 1
     end
     save_tags(tags)
-
+    puts tags
     tags
   end
 

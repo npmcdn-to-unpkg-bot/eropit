@@ -144,6 +144,8 @@ class FetchVideo
 
   def generate_title(tags)
 
+    puts tags
+
     final_tags = []
 
     flags = {

@@ -126,13 +126,14 @@ class FetchVideo
     result = YahooParseApi::Parse.new.parse(title, {
       results: 'ma'
     })
+    puts result
+
     tags = []
     words = result['ResultSet']['ma_result']['word_list']['word']
     words.each do |word|
       tags << word['surface'] if word['surface'].length > 1
     end
     save_tags(tags)
-    puts tags
     tags
   end
 

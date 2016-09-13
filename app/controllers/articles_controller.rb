@@ -92,10 +92,9 @@ class ArticlesController < ApplicationController
 
   def fetch
     f = FetchVideo.new
-    # f.nukistream
-    # f.masutabe
-    # f.javym
-    f.morphological_analysis('にわかにレイプ願望がある美人OL…上司たちにセクハラ挿入され絶頂')
+    f.nukistream
+    f.masutabe
+    f.javym
     redirect_to admin_path
   end
 

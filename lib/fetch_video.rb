@@ -107,6 +107,7 @@ class FetchVideo
   def save(videos)
     videos.each do |video|
       next if Article.exists?(link: video[:link])
+      morphological_analysis(video[:title])
       a = Article.new
       a.title = generate_title
       a.thumbnail = video[:thumbnail]
@@ -121,68 +122,87 @@ class FetchVideo
     end
   end
 
-  def generate_title
-    @b_tags = ActsAsTaggableOn::Tag.where(mean: 'b').pluck(:name, :pre_words, :suf_words)
-    @c_tags = ActsAsTaggableOn::Tag.where(mean: 'c').pluck(:name, :pre_words, :suf_words)
-    @i_tags = ActsAsTaggableOn::Tag.where(mean: 'i').pluck(:name, :pre_words, :suf_words)
-    @d_tags = ActsAsTaggableOn::Tag.where(mean: 'd').pluck(:name, :pre_words, :suf_words)
-    @pp_tags = ActsAsTaggableOn::Tag.where(mean: 'pp').pluck(:name, :pre_words, :suf_words)
-    @ap_tags = ActsAsTaggableOn::Tag.where(mean: 'ap').pluck(:name, :pre_words, :suf_words)
-    @s_tags = ActsAsTaggableOn::Tag.where(mean: 's').pluck(:name, :pre_words, :suf_words)
-    @o_tags = ActsAsTaggableOn::Tag.where(mean: 'o').pluck(:name, :pre_words, :suf_words)
-    @v_tags = ActsAsTaggableOn::Tag.where(mean: 'v').pluck(:name, :pre_words, :suf_words)
-    @a_tags = ActsAsTaggableOn::Tag.where(mean: 'a').pluck(:name, :pre_words, :suf_words)
+  def morphological_analysis(title)
+    YahooParseApi::Config.app_id = 'dj0zaiZpPWxhUlVicWFhVDd2ayZzPWNvbnN1bWVyc2VjcmV0Jng9YmM-'
+    result = YahooParseApi::Parse.new.parse('にわかにレイプ願望がある美人OL…上司たちにセクハラ挿入され絶頂', {
+      results: 'ma'
+    })
+    tags = []
+    words = result['ResultSet']['ma_result']['word_list']['word']
+    words.each do |word|
+      tags << word['surface'] if word['surface'].length > 1
+    end
+    save_tags(tags)
+  end
 
-    b = []
-    c = []
-    i = []
-    d = []
-    pp = []
-    ap = []
-    s = []
-    o = []
-    v = []
-    a = []
+  def save_tags(tags)
+    tags.each do |tag|
+      ActsAsTaggableOn::Tag.create(name: tag) unless ActsAsTaggableOn::Tag.exists?(name: tag)
+    end
+  end
 
-    @b_tags.each do |t|
-       b.push(t[0] +t[1] + t[2])
+  def generate_title(tags)
+
+    final_tags = []
+
+    flags = {
+      'b' => false,
+      'c' => false,
+      'i' => false,
+      'd' => false,
+      'pp' => false,
+      'ap' => false,
+      's' => false,
+      'o' => false,
+      'v' => false,
+      'a' => false
+    }
+
+    tags.each do |tag|
+      next if final_tags.exists?(name: tag)
+
+      t = ActsAsTaggableOn::Tag.where(name: tag).limit(1)
+      next if flags[t.mean] == true
+      flags[t.mean] = true
+      final_tags << t
     end
-    @c_tags.each do |t|
-       c.push(t[0] +t[1] + t[2])
+
+    flags.each do |mean, flag|
+      next if flag == true
+      t = ActsAsTaggableOn::Tag.where(name: tag).limit(1)
+      final_tags << t
     end
-    @i_tags.each do |t|
-       i.push(t[0] +t[1] + t[2])
-    end
-    @d_tags.each do |t|
-       d.push(t[0] +t[1] + t[2])
-    end
-    @pp_tags.each do |t|
-       pp.push(t[0] +t[1] + t[2])
-    end
-    @ap_tags.each do |t|
-       ap.push(t[0] +t[1] + t[2])
-    end
-    @s_tags.each do |t|
-       s.push(t[0] +t[1] + t[2])
-    end
-    @o_tags.each do |t|
-       o.push(t[0] +t[1] + t[2])
-    end
-    @v_tags.each do |t|
-       v.push(t[0] +t[1] + t[2])
-    end
-    @a_tags.each do |t|
-       a.push(t[0] +t[1] + t[2])
-    end
+
+    b_ = final_tags.where(mean: 'b')
+    c_ = final_tags.where(mean: 'c')
+    i_ = final_tags.where(mean: 'i')
+    d_ = final_tags.where(mean: 'd')
+    pp_ = final_tags.where(mean: 'pp')
+    ap_ = final_tags.where(mean: 'ap')
+    s_ = final_tags.where(mean: 's')
+    o_ = final_tags.where(mean: 'o')
+    v_ = final_tags.where(mean: 'v')
+    a_ = final_tags.where(mean: 'a')
+
+    b = b_.pre_words + b_.name + b_.suf_words
+    c = c_.pre_words + c_.name + c_.suf_words
+    i = i_.pre_words + i_.name + i_.suf_words
+    d = d_.pre_words + d_.name + d_.suf_words
+    pp = pp_.pre_words + pp_.name + pp_.suf_words
+    ap = ap_.pre_words + ap_.name + ap_.suf_words
+    s = s_.pre_words + s_.name + s_.suf_words
+    o = o_.pre_words + o_.name + o_.suf_words
+    v = v_.pre_words + v_.name + v_.suf_words
+    a = a_.pre_words + a_.name + a_.suf_words
 
     syntax =
     [
-      o.sample + b.sample + c.sample + i[0] + 'が' + d[0] + 'に' + s.sample + pp.sample + 'て' + a.sample,
-      c.sample + i[0] + 'が' + a.sample + '!' + d[0] + 'に' + s[0] + pp.sample + 'るw最後は' + v.sample + 'でフィニッシュ!',
-      i[0] + 'が' + s.sample + ap.sample + 'され' + a.sample + pp.sample + 'て終了' + o.sample,
-      s.sample + i[0] + 'がまさかの' + ap.sample + '、' + d.sample + 'に' + pp.sample + 'すぎて' + a.sample,
-      d.sample + 'に' + ap.sample + 'される' + c.sample + i[0] + '...' + 'ヤバ過ぎる' + pp.sample + 'で' + a.sample,
-      '【' + i[0] + ap.sample + '】' + c.sample + i[0] + 'が' + pp.sample + 'された結果⇒' + v.sample + '&' + a.sample
+      o + b + c + i + 'が' + d + 'に' + s + pp + 'て' + a,
+      c + i + 'が' + a + '!' + d + 'に' + s + pp + 'るw最後は' + v + 'でフィニッシュ!',
+      i + 'が' + s + ap + 'され' + a + pp + 'て終了' + o,
+      s + i + 'がまさかの' + ap + '、' + d + 'に' + pp + 'すぎて' + a,
+      d + 'に' + ap + 'される' + c + i + '...' + 'ヤバ過ぎる' + pp + 'で' + a,
+      '【' + i + ap + '】' + c + i + 'が' + pp + 'された結果⇒' + v + '&' + a
     ]
 
     title = syntax.sample
